@@ -1,0 +1,33 @@
+.h-95 {
+    height: 95% !important;
+}
+
+.prev {
+    position: relative;
+    bottom: 152px;
+    right: 27px;
+}
+
+.next {
+    position: absolute;
+    bottom: 115px;
+    left: 98%;
+}
+
+.color {
+    background-color: #f44336
+}
+
+.animate-opacity {
+    animation: opac 2s
+}
+
+@keyframes opac {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}

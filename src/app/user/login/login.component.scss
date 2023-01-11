@@ -1,0 +1,29 @@
+* {
+    font-family: 'Akaya Telivigala';
+}
+
+.container{
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    padding: 10%;
+    height: 89.5vh;
+    background: url('../../../assets/images/cartbg.jpg');
+    background-size: 100% 100%;
+
+}
+
+.flex1 {
+    flex: 1
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.w-35{
+    width: 40% !important;
+    min-width: 340px !important;
+}

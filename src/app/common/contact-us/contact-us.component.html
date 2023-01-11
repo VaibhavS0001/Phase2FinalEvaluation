@@ -1,0 +1,56 @@
+<nav-bar [buttons]="navButton" [route]="'contact'"></nav-bar>
+<mat-card class="m-auto w-50 mt-5">
+  <mat-card-header class="center mb-3">
+    <mat-card-title>Contact Us</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="contactUs">
+      <div class="d-flex">
+        <mat-form-field appearance="outline" class="flex1">
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            placeholder="Enter your Name"
+            formControlName="name"
+          />
+          <mat-error>Name is Required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="d-flex">
+        <mat-form-field appearance="outline" class="flex1">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="Enter your email"
+            formControlName="email"
+          />
+          <mat-error *ngIf="contactUs.get('email').errors?.required"
+            >Email is Required</mat-error
+          >
+          <mat-error *ngIf="contactUs.get('email').errors?.email"
+            >Format should be xyz@abc.com</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="d-flex">
+        <mat-form-field appearance="outline" class="flex1">
+          <mat-label>Topic of Concern</mat-label>
+          <textarea
+            matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5"
+            formControlName="message"
+          ></textarea>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button [disabled]="!contactUs.valid" (click)="send()">
+      Send
+      <mat-icon class="icon-family">send</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
