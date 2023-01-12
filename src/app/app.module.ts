@@ -15,6 +15,7 @@ import { UserEffects } from './state/user/user.effects';
 import { userReducer } from './state/user/user.reducers';
 import { ProductEffects } from './state/products/products.effects';
 import { productReducer } from './state/products/products.reducers';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { productReducer } from './state/products/products.reducers';
     StoreModule.forFeature('users', userReducer),
     StoreModule.forFeature('products', productReducer),
     EffectsModule.forRoot([UserEffects, ProductEffects]),
-    HttpClientInMemoryWebApiModule.forRoot(DatabaseService)
+    HttpClientInMemoryWebApiModule.forRoot(DatabaseService),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ProductState } from 'src/app/state/products/product.state';
@@ -8,6 +7,7 @@ import { IProduct } from '../product.model';
 import * as ProductActions from '../../state/products/products.actions';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -16,10 +16,15 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class ProductListComponent implements OnInit {
   products: IProduct[] = [];
+  
+  panelOpenState = false;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  displayedColumns: string[] = ['image', 'name', 'price', 'rating'];
+  displayedColumns: string[] = ['image', 'name', 'price', 'rating', 'Actions'];
   dataSource!: any;
-
+  navButton: string = 'login';
+  category!: string;
+  msg!: string;
+  
   constructor(
     private aRoute: ActivatedRoute,
     private store: Store<ProductState>
@@ -28,14 +33,26 @@ export class ProductListComponent implements OnInit {
   public allProducts: Observable<IProduct[]> = this.store.select(getProducts);
 
   ngOnInit(): void {
+    if (sessionStorage.getItem('isAuthenticated') == 'true') {
+      this.navButton = 'Logout';
+    } else {
+      this.navButton = 'Login';
+    }
     this.aRoute.paramMap.subscribe((params: any) => {
-      console.log(params.params.category);
+      this.category = params.params.category;
+      this.store.dispatch(ProductActions.loadProducts());
     });
-    this.store.dispatch(ProductActions.loadProducts());
+
     this.allProducts.subscribe((products) => {
-      this.products = products;
+      this.products = products.filter(
+        (product) => product.category == this.category
+      );
+      // this.products = products;
       this.dataSource = new MatTableDataSource<IProduct>(this.products);
       this.dataSource.paginator = this.paginator;
     });
+  }
+  OnclickRating(msg: string): void {
+    this.msg = msg;
   }
 }

@@ -31,14 +31,69 @@
     </mat-menu>
 
     <mat-menu #fruits="matMenu">
-      <button mat-menu-item [routerLink]="links[0]">Apples and Pears</button>
-      <button mat-menu-item [routerLink]="links[0]">Citrus</button>
-      <button mat-menu-item [routerLink]="links[0]">Stone Fruit</button>
-      <button mat-menu-item [routerLink]="links[0]">Tropical and Exotic</button>
-      <button mat-menu-item [routerLink]="links[0]">Berries</button>
-      <button mat-menu-item [routerLink]="links[0]">Melons</button>
       <button mat-menu-item [routerLink]="links[0]">
-        Tomatoes and Aavocados
+        Apples and Pears<img
+          class="p-3"
+          src="../../../assets/images/ap.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[0]">
+        Citrus<img
+          class="p-3"
+          src="../../../assets/images/citrus.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[0]">
+        Stone Fruit<img
+          class="p-3"
+          src="../../../assets/images/stone-fruit.webp"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[0]">
+        Tropical and Exotic<img
+          class="p-3"
+          src="../../../assets/images/tropicalE.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[0]">
+        Berries<img
+          class="p-3"
+          src="../../../assets/images/berries.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[0]">
+        Melons<img
+          class="p-3"
+          src="../../../assets/images/melons.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[0]">
+        Tomatoes<img
+          class="p-3"
+          src="../../../assets/images/tomato.png"
+          alt=""
+          height="50px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[0]">
+        Aavocados<img
+          class="p-3"
+          src="../../../assets/images/avacado.webp"
+          alt=""
+          height="50px"
+        />
       </button>
     </mat-menu>
     <mat-menu #electronics="matMenu">
@@ -51,40 +106,138 @@
           alt=""
         />
       </button>
-      <button mat-menu-item [routerLink]="links[2]">Smart Watches</button>
-      <button mat-menu-item [routerLink]="links[2]">Camera</button>
+      <button mat-menu-item [routerLink]="links[2]">
+        Smart Watches<img
+          class="p-3"
+          src="../../../assets/images/smartwatch.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[2]">
+        Camera
+        <img
+          class="p-3"
+          src="../../../assets/images/camera.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
       <button mat-menu-item [matMenuTriggerFor]="households">
         Home Appliances
       </button>
     </mat-menu>
 
     <mat-menu #households="matMenu">
-      <button mat-menu-item [routerLink]="links[2]">Vaccum Cleaners</button>
-      <button mat-menu-item [routerLink]="links[2]">Grinders</button>
-      <button mat-menu-item [routerLink]="links[2]">Mixers</button>
-      <button mat-menu-item [routerLink]="links[2]">Choppers</button>
-      <button mat-menu-item [routerLink]="links[2]">Sewing Machines</button>
-      <button mat-menu-item [routerLink]="links[2]">Water Heaters</button>
-      <button mat-menu-item [routerLink]="links[2]">Washers</button>
+      <button mat-menu-item [routerLink]="links[2]">
+        Vaccum Cleaners<img
+          class="p-3"
+          src="../../../assets/images/VC.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[2]">
+        Grinders<img
+          class="p-3"
+          src="../../../assets/images/grinders.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[2]">
+        Mixers<img
+          class="p-3"
+          src="../../../assets/images/mixers.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[2]">
+        Choppers<img
+          class="p-3"
+          src="../../../assets/images/chopper.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[2]">
+        Sewing Machines<img
+          class="p-3"
+          src="../../../assets/images/sw.png"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[2]">
+        Water Heaters<img
+          class="p-3"
+          src="../../../assets/images/wh.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[2]">
+        Washers<img
+          class="p-3"
+          src="../../../assets/images/washers.png"
+          alt=""
+          height="60px"
+        />
+      </button>
     </mat-menu>
 
     <mat-menu #veges="matMenu">
       <button mat-menu-item [routerLink]="'/products/veges'">
         Cruciferous
-      </button>
-      <button mat-menu-item [routerLink]="links[1]">Leafy Green</button>
-      <button mat-menu-item [routerLink]="links[1]">Allium</button>
-      <button mat-menu-item [routerLink]="links[1]">
-        Edible Plant Stem
         <img
           class="p-3"
-          src="../../../assets/images/sweetCorn.jpg"
+          src="../../../assets/images/cruciferous.webp"
           alt=""
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[1]">Root</button>
-      <button mat-menu-item [routerLink]="links[1]">Marrow</button>
+      <button mat-menu-item [routerLink]="links[1]">
+        Leafy Green<img
+          class="p-3"
+          src="../../../assets/images/LeafyGreens.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[1]">
+        Allium<img
+          class="p-3"
+          src="../../../assets/images/alliums.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[1]">
+        Edible Plant Stem
+        <img
+          class="p-3"
+          src="../../../assets/images/EPS.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[1]">
+        Root<img
+          class="p-3"
+          src="../../../assets/images/roots.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
+      <button mat-menu-item [routerLink]="links[1]">
+        Marrow<img
+          class="p-3"
+          src="../../../assets/images/marrow.jpg"
+          alt=""
+          height="60px"
+        />
+      </button>
     </mat-menu>
     <button
       mat-flat-button
