@@ -19,7 +19,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SharedRoutingModule } from './shared.routing.module';
-
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { StarComponent } from './star/star.component';
@@ -31,11 +31,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ContactUsComponent,
     AboutUsComponent,
     PageNotFoundComponent,
-    StarComponent
+    StarComponent,
   ],
   imports: [
     CommonModule,
     MatButtonModule,
+    MatGridListModule,
     MatPaginatorModule,
     MatCardModule,
     MatDialogModule,
@@ -64,6 +65,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatInputModule,
     MatMenuModule,
+    MatGridListModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
     MatTableModule,

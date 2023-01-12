@@ -40,7 +40,13 @@ export class DatabaseService implements InMemoryDbService {
           category: Category.veges,
           rating: 4,
           image: '../../assets/images/lettuce.png',
-          description: 'This is a tomato',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 2,
@@ -49,7 +55,13 @@ export class DatabaseService implements InMemoryDbService {
           category: Category.veges,
           rating: 4.5,
           image: 'assets/images/spinach.png',
-          description: 'These are delicious corn',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 3,
@@ -58,7 +70,13 @@ export class DatabaseService implements InMemoryDbService {
           category: Category.veges,
           rating: 4,
           image: '../../assets/images/silverbeet.png',
-          description: 'This is a tomato',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 4,
@@ -67,7 +85,13 @@ export class DatabaseService implements InMemoryDbService {
           category: Category.veges,
           rating: 4.5,
           image: 'assets/images/cabbage.png',
-          description: 'These are delicious corn',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 5,
@@ -76,7 +100,13 @@ export class DatabaseService implements InMemoryDbService {
           category: Category.veges,
           rating: 4,
           image: '../../assets/images/cauliflower.png',
-          description: 'This is a tomato',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 6,
@@ -85,7 +115,13 @@ export class DatabaseService implements InMemoryDbService {
           category: Category.veges,
           rating: 4.5,
           image: 'assets/images/brussels.png',
-          description: 'These are delicious corn',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 7,
@@ -94,7 +130,13 @@ export class DatabaseService implements InMemoryDbService {
           category: Category.veges,
           rating: 4,
           image: '../../assets/images/broccoli.png',
-          description: 'This is a tomato',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 8,
@@ -103,61 +145,103 @@ export class DatabaseService implements InMemoryDbService {
           category: Category.veges,
           rating: 4.5,
           image: 'assets/images/pumpkin.png',
-          description: 'These are delicious corn',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 60,
-          name: 'Phone',
+          name: 'Galaxy Z Fold 4',
           price: '40000',
           category: Category.electronics,
           rating: 5,
-          image: '../assets/images/RsmartPhone1.jpg',
-          description: 'This is a smart Phone',
+          image: '../assets/images/galaxyzfold4.webp',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 61,
-          name: 'Phone',
+          name: 'Galaxy M53',
           price: '40000',
           category: Category.electronics,
           rating: 5,
-          image: '../assets/images/RsmartPhone1.jpg',
-          description: 'This is a smart Phone',
+          image: '../assets/images/gM53.avif',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 62,
-          name: 'Phone',
+          name: 'Galaxy Tab S8',
           price: '40000',
           category: Category.electronics,
           rating: 5,
-          image: '../assets/images/RsmartPhone1.jpg',
-          description: 'This is a smart Phone',
+          image: '../assets/images/Gtabs8.webp',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 63,
-          name: 'Phone',
+          name: 'Galaxy z Flip 5',
           price: '40000',
           category: Category.electronics,
           rating: 5,
-          image: '../assets/images/RsmartPhone1.jpg',
-          description: 'This is a smart Phone',
+          image: '../assets/images/gzflip4.webp',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 64,
-          name: 'Phone',
+          name: 'Apple iPhone 14 Pro Max',
           price: '40000',
           category: Category.electronics,
           rating: 5,
-          image: '../assets/images/RsmartPhone1.jpg',
-          description: 'This is a smart Phone',
+          image: '../assets/images/iphone14promax.jpg',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 65,
-          name: 'Phone',
+          name: 'Samsnug S22',
           price: '40000',
           category: Category.electronics,
           rating: 5,
-          image: '../assets/images/RsmartPhone1.jpg',
-          description: 'This is a smart Phone',
+          image: '../assets/images/samsungs22.webp',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 80,
@@ -166,7 +250,13 @@ export class DatabaseService implements InMemoryDbService {
           category: Category.fruits,
           rating: 5,
           image: '../assets/images/apple.png',
-          description: 'These are apples',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 81,
@@ -175,7 +265,13 @@ export class DatabaseService implements InMemoryDbService {
           category: Category.fruits,
           rating: 4,
           image: '../assets/images/pear.png',
-          description: 'This is a pear',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 82,
@@ -184,7 +280,13 @@ export class DatabaseService implements InMemoryDbService {
           category: Category.fruits,
           rating: 3.5,
           image: '../assets/images/orange.png',
-          description: 'These are oranges',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 83,
@@ -193,7 +295,13 @@ export class DatabaseService implements InMemoryDbService {
           category: Category.fruits,
           rating: 3,
           image: '../assets/images/grapefruit.png',
-          description: 'These are grapes',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 84,
@@ -202,7 +310,13 @@ export class DatabaseService implements InMemoryDbService {
           category: Category.fruits,
           rating: 2.5,
           image: '../assets/images/apricot.png',
-          description: 'This is an Apricot',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
         {
           id: 85,
@@ -211,7 +325,13 @@ export class DatabaseService implements InMemoryDbService {
           category: Category.fruits,
           rating: 1,
           image: '../assets/images/strawberry.png',
-          description: 'These are strawberries',
+          customerReviews: [
+            {
+              customerName: 'Jane',
+              review: 'Great Quality',
+            },
+          ],
+          views: 500,
         },
       ],
     };

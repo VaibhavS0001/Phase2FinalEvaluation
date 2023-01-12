@@ -8,7 +8,11 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent {
   title = 'InstaSMart';
-  links: Array<string> = ['/products/fruits', '/products/veges', '/products/electronics'];
+  links: Array<string> = [
+    '/products/productList/fruits',
+    '/products/productList/veges',
+    '/products/productList/electronics',
+  ];
   @Input() route!: string;
   @Input() buttons: string = 'Login';
 
