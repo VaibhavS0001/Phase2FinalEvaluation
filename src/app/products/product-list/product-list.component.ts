@@ -10,15 +10,27 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { trigger, state, style } from '@angular/animations';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
+  animations: [
+    trigger('enlarge', [
+      state(
+        'end',
+        style({
+          'box-shadow': '0 0 10px rgba(0, 0, 0, 0.5)',
+        })
+      ),
+    ]),
+  ],
 })
 export class ProductListComponent implements OnInit {
   products: IProduct[] = [];
-
+  isHoveringState: Array<string> = [];
   panelOpenState = false;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   displayedColumns: string[] = ['image', 'name', 'price', 'rating', 'Actions'];
@@ -30,7 +42,8 @@ export class ProductListComponent implements OnInit {
   constructor(
     private aRoute: ActivatedRoute,
     private store: Store<ProductState>,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private snackbar: MatSnackBar
   ) {}
 
   public allProducts: Observable<IProduct[]> = this.store.select(getProducts);
@@ -50,6 +63,9 @@ export class ProductListComponent implements OnInit {
       this.products = products.filter(
         (product) => product.category == this.category
       );
+      for (let i = 0; i < this.products.length; i++) {
+        this.isHoveringState[i] = 'void';
+      }
       // this.products = products;
       this.dataSource = new MatTableDataSource<IProduct>(this.products);
       this.dataSource.paginator = this.paginator;
@@ -61,13 +77,21 @@ export class ProductListComponent implements OnInit {
 
   details(product: IProduct): void {
     const dialogRef = this.dialog.open(ProductDetailsComponent, {
-        height: '500px',
-        width: '60%',
+      width: '60%',
       data: { product: product, type: 'getProducts' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
+      if (result) {
+        this.snackbar.open('Product Added to Cart Successfully', 'close', {
+          duration: 2000,
+        });
+      }
     });
+  }
+  changeHover(index: number): void {
+    this.isHoveringState[index] =
+      this.isHoveringState[index] === 'void' ? 'end' : 'void';
   }
 }

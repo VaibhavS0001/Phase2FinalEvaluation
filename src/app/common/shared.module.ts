@@ -58,6 +58,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [
     MatButtonModule,
+    NgbCarouselModule,
     MatCardModule,
     MatDialogModule,
     MatDividerModule,

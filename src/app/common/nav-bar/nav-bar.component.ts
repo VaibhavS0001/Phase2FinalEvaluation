@@ -25,9 +25,12 @@ export class NavBarComponent {
       sessionStorage.setItem('isAuthenticated', 'false');
       sessionStorage.removeItem('role');
       sessionStorage.removeItem('loggedInUser');
+      setTimeout(() => {
+        this.router.navigate(['/home'], {replaceUrl: true});
+      }, 0.5);
       this.router.navigate(['']);
     } else if (this.buttons == 'Login') {
-      this.router.navigate(['']);
+      this.router.navigate([''], {replaceUrl: true});
     }
   }
 }

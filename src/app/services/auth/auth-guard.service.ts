@@ -12,7 +12,7 @@ import { UserService } from '../user/user.service';
 export class AuthGuardService {
   constructor(private router: Router, private authService: UserService) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  canActivate(state: RouterStateSnapshot) {
     return this.checkLoggedin(state.url);
   }
   checkLoggedin(url: string) {

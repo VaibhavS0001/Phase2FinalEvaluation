@@ -1,15 +1,25 @@
 <nav-bar [buttons]="navButton" [route]="'product'"></nav-bar>
 
-<div class="h-100">
-  <mat-card class="m-auto mt-3 w-75 shadow-lg">
+<div class="h-100 color py-3">
+  <mat-card class="m-auto w-75 mb-3 shadow-lg">
     <mat-card-header class="mb-2">
       <mat-card-subtitle>Today's top sales</mat-card-subtitle>
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content class="mt-2">
-      <mat-grid-list [cols]="5" rowHeight="1:1.5">
-        <mat-grid-tile *ngFor="let i of this.products">
-          <mat-card class="m-2 cursor" (click)="details(i)">
+      <mat-grid-list [cols]="4" rowHeight="260px">
+        <mat-grid-tile
+          [colspan]="1"
+          [rowspan]="1"
+          *ngFor="let i of this.products; let index = index"
+        >
+          <mat-card
+            class="m-2 cursor"
+            (click)="details(i)"
+            [@enlarge]="isHoveringState[index]"
+            (mouseenter)="changeHover(index)"
+            (mouseleave)="changeHover(index)"
+          >
             <mat-card-content>
               <img [src]="i.image" alt="" height="120px" width="100%" />
               <p>{{ i.price | currency : "INR" }}</p>

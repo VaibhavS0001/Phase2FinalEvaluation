@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
+import { AuthGuardService } from './services/auth/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -15,11 +16,7 @@ const routes: Routes = [
     path: 'products',
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),
-  },
-  {
-    path: 'products',
-    loadChildren: () =>
-      import('./products/products.module').then((m) => m.ProductsModule),
+      canActivate: [AuthGuardService],
   },
   {
     path: 'shared',

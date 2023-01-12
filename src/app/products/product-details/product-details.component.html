@@ -1,11 +1,11 @@
 <h1 mat-dialog-title>Product Details</h1>
-<div mat-dialog-content class="w-100">
-  <mat-card>
+<div mat-dialog-content class="h-100">
+  <mat-card class="h-100">
     <mat-card-header>
-      <mat-card-title>{{ data.product.name }}</mat-card-title>
+      <mat-card-title>{{ data?.product?.name }}</mat-card-title>
       <mat-card-subtitle
-        ><app-star [rating]="data.product.rating"></app-star
-        >{{ data.product.views }} Global Ratings</mat-card-subtitle
+        ><app-star [rating]="data?.product?.rating"></app-star
+        >{{ data?.product?.views }} Global Ratings</mat-card-subtitle
       >
     </mat-card-header>
     <mat-card-content>
@@ -13,7 +13,7 @@
         <mat-grid-tile [colspan]="1" [rowspan]="2">
           <img
             class="m-5"
-            [src]="data.product.image"
+            [src]="data?.product?.image"
             alt=""
             width="100%"
             height="185px"
@@ -41,16 +41,20 @@
               59%
             </p>
           </div>
-          {{ data.product.price | currency : "INR" }}
+          {{ data?.product?.price | currency : "INR" }}
         </mat-grid-tile>
 
-        <mat-grid-tile
-          [colspan]="3"
-          [rowspan]="1"
-          [ngStyle]="{ background: 'yellow' }"
-        >
-          {{ data.product.customerReviews[0].customerName }}
-          {{ data.product.customerReviews[0].review }}
+        <mat-grid-tile [colspan]="3" [rowspan]="1">
+          <div>
+            <p>
+              <strong>CustomerName:</strong>
+              {{ data?.product?.customerReviews[0]?.customerName }}
+            </p>
+            <p>
+              <strong>Reviews:</strong>
+              {{ data?.product?.customerReviews[0]?.review }}
+            </p>
+          </div>
         </mat-grid-tile>
       </mat-grid-list>
     </mat-card-content>
