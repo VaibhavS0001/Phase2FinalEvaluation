@@ -1,9 +1,15 @@
+/**
+ * Enum for the Various Categories
+ */
 export enum Category {
   veges = 'veges',
   electronics = 'electronics',
   fruits = 'fruits',
 }
 
+/**
+ * Interface for customer reviews and ratings
+ */
 export interface customerReview {
   customerName: string;
   review: string;
@@ -12,6 +18,9 @@ export interface customerReview {
   place: string;
 }
 
+/**
+ * Product model interface
+ */
 export interface IProduct {
   id: number;
   name: string;

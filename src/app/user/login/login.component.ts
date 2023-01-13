@@ -15,12 +15,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  /**
-   * login form declaration
-   */
+  
   loginForm!: any;
-  public allUsers: Observable<IUser[]> = this.store.select(getUsers);
   users!: IUser[];
+  
+  /**
+   * Observable for get all users
+   */
+  public allUsers: Observable<IUser[]> = this.store.select(getUsers);
+  
+  /**
+   * Constructor
+   * @param fb for Reactive Form Builder
+   * @param store for managing the user state
+   * @param route for navigating to other components
+   * @param _snackBar for displaying custom alert messages
+   */
   constructor(
     private fb: FormBuilder,
     private store: Store<UserState>,
@@ -28,6 +38,10 @@ export class LoginComponent {
     private _snackBar: MatSnackBar
   ) {}
 
+  /**
+   * On initialization checks for Authentication
+   * if not authenticated then loads all the users 
+   */
   ngOnInit(): void {
     if(sessionStorage.getItem('isAuthenticated') == 'true') {
       this.route.navigate(['/home']);
@@ -50,7 +64,8 @@ export class LoginComponent {
   }
 
   /**
-   * Perform login action by fetching users and authenticating them.
+   * Perform login action by validating users and authenticating them.
+   * once user is authenticated redirects to home page
    */
   login() {
     let user = this.users.filter(

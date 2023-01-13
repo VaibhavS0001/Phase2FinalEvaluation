@@ -12,20 +12,23 @@ import {
   templateUrl: './star.component.html',
   styleUrls: ['./star.component.scss'],
 })
-export class StarComponent implements OnInit, AfterViewInit {
+export class StarComponent implements AfterViewInit {
+  /**
+   * property binding for parent to child
+   */
   @ViewChild('div') div!: ElementRef;
   @Input() rating: number = 0;
   @Input() size!: number;
-  @Output() ratingClicked: EventEmitter<string> = new EventEmitter();
 
+  /**
+   * constructor
+   * @param renderer for rendering data on view
+   */
   constructor(private renderer: Renderer2) {}
 
-  ngOnInit(): void {}
-
-  onclick() {
-    this.ratingClicked.emit(`Rating is ${this.rating} `);
-  }
-
+  /**
+   * After view is initialized it will render material icons
+   */
   ngAfterViewInit(): void {
     if (this.rating <= 5) {
       for (let i = 0; i < Math.floor(this.rating); i++) {

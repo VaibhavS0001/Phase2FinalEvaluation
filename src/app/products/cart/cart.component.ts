@@ -18,7 +18,7 @@ export class CartComponent {
   };
   total: number = 0;
   navButton: string = 'login';
-  
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private cartService: CartListService

@@ -6,10 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  /**
+   * Variable declaration
+   */
   navButton: string = 'login';
-  // images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/1260/500`);
-  constructor() {}
 
+  /**
+   * On Initialization it will check for user authentication
+   * if user is authenticated then change navButton to Logout
+   * otherwise Login.
+   */
   ngOnInit(): void {
     if (sessionStorage.getItem('isAuthenticated') == 'true') {
       this.navButton = 'Logout';

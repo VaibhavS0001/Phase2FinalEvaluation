@@ -5,8 +5,6 @@ import { ProductState } from 'src/app/state/products/product.state';
 import { getProducts } from 'src/app/state/products/products.selectors';
 import { IProduct } from '../product.model';
 import * as ProductActions from '../../state/products/products.actions';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -17,6 +15,10 @@ import { trigger, state, style } from '@angular/animations';
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
+
+  /**
+   * Animations for enlarging the element on hover
+   */
   animations: [
     trigger('enlarge', [
       state(
@@ -29,27 +31,47 @@ import { trigger, state, style } from '@angular/animations';
   ],
 })
 export class ProductListComponent implements OnInit {
-  products: IProduct[] = [];
-  isHoveringState: Array<string> = [];
-  panelOpenState = false;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  /**
+   * Variable Declarations
+   */
   displayedColumns: string[] = ['image', 'name', 'price', 'rating', 'Actions'];
-  dataSource!: any;
+  isHoveringState: Array<string> = [];
   navButton: string = 'login';
+  products: IProduct[] = [];
+  panelOpenState = false;
   category!: string;
+  dataSource!: any;
   msg!: string;
   role!: any;
 
+  /**
+   * constructor
+   * @param store for managing the state of products
+   * @param aRoute for getting the data from routes
+   * @param snackbar for showing the alert messages
+   * @param dialog for opening product Details
+   * @param router for navigating to different components
+   */
   constructor(
-    private aRoute: ActivatedRoute,
     private store: Store<ProductState>,
-    public dialog: MatDialog,
+    private aRoute: ActivatedRoute,
     private snackbar: MatSnackBar,
+    public dialog: MatDialog,
     private router: Router
   ) {}
 
+  /**
+   * for getting Products data
+   */
   public allProducts: Observable<IProduct[]> = this.store.select(getProducts);
 
+  /**
+   * On Initialization it will check for user authentication
+   * if user is authenticated then change navButton to Logout
+   * otherwise Login.
+   * then fetchs the category from routes and loads the products list
+   * and setting data in the datasoure for table view
+   */
   ngOnInit(): void {
     this.role = sessionStorage.getItem('role');
     if (sessionStorage.getItem('isAuthenticated') == 'true') {
@@ -69,16 +91,13 @@ export class ProductListComponent implements OnInit {
       for (let i = 0; i < this.products.length; i++) {
         this.isHoveringState[i] = 'void';
       }
-      // this.products = products;
-      this.dataSource = new MatTableDataSource<IProduct>(this.products);
-      this.dataSource.paginator = this.paginator;
     });
   }
 
-  OnclickRating(msg: string): void {
-    this.msg = msg;
-  }
-
+  /**
+   * details of the product
+   * @param prod passing the particular product to the dialog for details
+   */
   details(prod: IProduct): void {
     const dialogRef = this.dialog.open(ProductDetailsComponent, {
       width: '60%',
@@ -87,27 +106,35 @@ export class ProductListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
+        /**
+         * Save the product to the cart
+         */
         if (result.type === 'saveToCart') {
           this.snackbar.open('Product Added to Cart Successfully', 'close', {
             duration: 2000,
           });
-          this.router.navigate(['products/cart'], { state: { data: result.res } });
+          this.router.navigate(['products/cart'], {
+            state: { data: result.res },
+          });
         }
+
+        /**
+         * Delete the product
+         */
         if (result.type === 'delete') {
           let productId = result.res.id;
-          this.store.dispatch(
-            ProductActions.deleteProduct({ productId })
-          );
+          this.store.dispatch(ProductActions.deleteProduct({ productId }));
           this.snackbar.open('Product deleted Successfully', 'close', {
             duration: 2000,
           });
         }
 
+        /**
+         * Update a product
+         */
         if (result.type === 'update') {
           let product = result.res;
-          this.store.dispatch(
-            ProductActions.updateProduct({ product })
-          );
+          this.store.dispatch(ProductActions.updateProduct({ product }));
           this.snackbar.open('Product updated Successfully', 'close', {
             duration: 2000,
           });
@@ -115,6 +142,11 @@ export class ProductListComponent implements OnInit {
       }
     });
   }
+
+  /**
+   * change the status of a mouse hover over a product
+   * @param index index of the product for animation change
+   */
   changeHover(index: number): void {
     this.isHoveringState[index] =
       this.isHoveringState[index] === 'void' ? 'end' : 'void';

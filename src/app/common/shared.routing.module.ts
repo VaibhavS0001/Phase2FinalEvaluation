@@ -4,7 +4,13 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 
 const routes: Routes = [
+  /**
+   * About Us component
+   */
   {path: 'about-us', component: AboutUsComponent},
+  /**
+   * Contact Us component
+   */
   {path: 'contact-us', component: ContactUsComponent},
 ];
 

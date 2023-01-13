@@ -1,10 +1,13 @@
+<!-- Nav Bar Component Starts -->
 <nav-bar [buttons]="navButton" [route]="'product'"></nav-bar>
+<!-- Nav Bar Component Ends -->
 
 <div class="color py-3 mh">
   <mat-card class="m-auto w-75 mb-3 shadow-lg">
     <mat-card-header class="mb-2">
       <mat-card-subtitle>Today's top sales</mat-card-subtitle>
       <span class="spacer"></span>
+      <!-- Add Product function will be only available to the admin -->
       <button mat-flat-button *ngIf="role == 'Admin'">Add Product</button>
     </mat-card-header>
     <mat-divider></mat-divider>
@@ -16,11 +19,7 @@
           *ngFor="let i of this.products; let index = index"
         >
           <mat-card
-            class="m-2 cursor mxh
-            
-            
-            
-            "
+            class="m-2 cursor mxh"
             (click)="details(i)"
             [@enlarge]="isHoveringState[index]"
             (mouseenter)="changeHover(index)"
@@ -31,10 +30,7 @@
               <p>{{ i.price | currency : "INR" }}</p>
               <p>{{ i.name }}</p>
               <p>
-                <app-star
-                  [rating]="i.rating"
-                  (ratingClicked)="OnclickRating($event)"
-                ></app-star>
+                <app-star [rating]="i.rating"></app-star>
               </p>
             </mat-card-content>
           </mat-card>

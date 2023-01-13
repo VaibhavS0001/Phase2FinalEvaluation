@@ -9,39 +9,69 @@ import { IProduct } from '../product.model';
   styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent {
+  /**
+   * Variable Declarations
+   */
   role!: any;
-  switch: boolean = true;
   updateProduct: any;
   file_store!: FileList;
+  switch: boolean = true;
   file_list: Array<string> = [];
 
+  /**
+   * constructor
+   * @param fb for Form Builder
+   * @param data for fetching the data that has been passed to the dialog
+   * @param dialogRef for returning the data in a callback
+   */
   constructor(
-    public dialogRef: MatDialogRef<ProductDetailsComponent>,
+    private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private fb: FormBuilder
+    public dialogRef: MatDialogRef<ProductDetailsComponent>
   ) {}
 
+  /**
+   * On Initialization gets the role of user
+   */
   ngOnInit(): void {
     this.role = sessionStorage.getItem('role');
     this.initUpdateForm();
   }
 
+  /**
+   * On click of close return false
+   */
   onNoClick(): void {
     this.dialogRef.close(false);
   }
 
+  /**
+   * On click on Add to cart returns the product
+   * to product List with corresponding type
+   */
   saveToCart() {
     this.dialogRef.close({ res: this.data.product, type: 'saveToCart' });
   }
 
+  /**
+   * On click on Delete returns the product
+   * to product List with corresponding type
+   */
   delete(): void {
     this.dialogRef.close({ res: this.data.product, type: 'delete' });
   }
 
+  /**
+   * On click on Edit Button changes the view to update the product
+   */
   edit(): void {
     this.switch = !this.switch;
   }
 
+  /**
+   * Initializes the update form with form Group
+   * and populate it with saved details
+   */
   initUpdateForm() {
     this.updateProduct = this.fb.group({
       name: new FormControl(this.data.product?.name, Validators.required),
@@ -55,10 +85,14 @@ export class ProductDetailsComponent {
     });
   }
 
+  /**
+   * On click on update button returns the updated product
+   * to product List with corresponding type
+   */
   update(): void {
-    let res: IProduct
+    let res: IProduct;
     if (this.updateProduct.get('display').touched) {
-       res = {
+      res = {
         id: this.data.product.id,
         name: this.updateProduct.get('name').value,
         price: this.updateProduct.get('price').value,
@@ -83,6 +117,10 @@ export class ProductDetailsComponent {
     this.dialogRef.close({ res: res, type: 'update' });
   }
 
+  /**
+   * handles displaying of name of file to file input field
+   * @param l is file name
+   */
   handleFileInputChange(l: any): void {
     this.file_store = l;
     if (l.length) {

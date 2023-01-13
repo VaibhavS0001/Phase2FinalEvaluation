@@ -1,9 +1,13 @@
+<!-- Nav Bar Component Start -->
 <nav-bar [buttons]="navButton" [route]="'contact'"></nav-bar>
+<!-- Nav Bar Component Ends -->
+
 <mat-card class="m-auto w-50 mt-5">
   <mat-card-header class="center mb-3">
     <mat-card-title>Contact Us</mat-card-title>
   </mat-card-header>
   <mat-card-content>
+    <!-- Contact Us Form Starts -->
     <form [formGroup]="contactUs">
       <div class="d-flex">
         <mat-form-field appearance="outline" class="flex1">
@@ -46,6 +50,7 @@
         </mat-form-field>
       </div>
     </form>
+    <!-- Login Form Ends -->
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button [disabled]="!contactUs.valid" (click)="send()">
