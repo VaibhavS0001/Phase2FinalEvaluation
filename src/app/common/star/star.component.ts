@@ -15,6 +15,7 @@ import {
 export class StarComponent implements OnInit, AfterViewInit {
   @ViewChild('div') div!: ElementRef;
   @Input() rating: number = 0;
+  @Input() size!: number;
   @Output() ratingClicked: EventEmitter<string> = new EventEmitter();
 
   constructor(private renderer: Renderer2) {}
@@ -29,6 +30,11 @@ export class StarComponent implements OnInit, AfterViewInit {
     if (this.rating <= 5) {
       for (let i = 0; i < Math.floor(this.rating); i++) {
         let icon = this.renderer.createElement('mat-icon');
+        if (this.size) {
+          icon.style.fontSize = this.size + 'px';
+          icon.style.height = '9px';
+          icon.style.width = '10px';
+        }
         this.renderer.appendChild(icon, this.renderer.createText('star'));
         this.renderer.addClass(icon, 'mat-icon');
         this.renderer.addClass(icon, 'material-icons');
@@ -36,6 +42,11 @@ export class StarComponent implements OnInit, AfterViewInit {
       }
       if (this.rating?.toString().includes('.5')) {
         let icon = this.renderer.createElement('mat-icon');
+        if (this.size) {
+          icon.style.fontSize = this.size + 'px';
+          icon.style.height = '9px';
+          icon.style.width = '10px';
+        }
         this.renderer.appendChild(icon, this.renderer.createText('star_half'));
         this.renderer.addClass(icon, 'mat-icon');
         this.renderer.addClass(icon, 'material-icons');

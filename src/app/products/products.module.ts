@@ -8,19 +8,21 @@ import { ProductEffects } from '../state/products/products.effects';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { SharedModule } from '../common/shared.module';
+import { CartComponent } from './cart/cart.component';
 
 
 
 @NgModule({
   declarations: [
     ProductListComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     ProductRoutingModule,
-    StoreModule.forFeature('animals', productReducer),
+    StoreModule.forFeature('products', productReducer),
     EffectsModule.forFeature([ProductEffects]),
   ]
 })

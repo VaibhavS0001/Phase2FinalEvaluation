@@ -44,6 +44,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -59,6 +62,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -74,6 +80,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -89,6 +98,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -104,6 +116,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -119,6 +134,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -134,6 +152,16 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
+            },
+            {
+              customerName: 'James',
+              review: 'Quality not so great',
+              customerRating: 2.5,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -149,6 +177,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -164,6 +195,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -179,6 +213,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -194,6 +231,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -209,6 +249,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -224,6 +267,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -239,6 +285,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -254,6 +303,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -269,6 +321,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -284,6 +339,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -299,6 +357,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -314,6 +375,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,
@@ -329,6 +393,9 @@ export class DatabaseService implements InMemoryDbService {
             {
               customerName: 'Jane',
               review: 'Great Quality',
+              customerRating: 4,
+              date: '27 Dec 2015',
+              place: 'India'
             },
           ],
           views: 500,

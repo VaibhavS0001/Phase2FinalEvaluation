@@ -1,9 +1,11 @@
 <nav-bar [buttons]="navButton" [route]="'product'"></nav-bar>
 
-<div class="h-100 color py-3">
+<div class="color py-3 mh">
   <mat-card class="m-auto w-75 mb-3 shadow-lg">
     <mat-card-header class="mb-2">
       <mat-card-subtitle>Today's top sales</mat-card-subtitle>
+      <span class="spacer"></span>
+      <button mat-flat-button *ngIf="role == 'Admin'">Add Product</button>
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content class="mt-2">
@@ -14,7 +16,11 @@
           *ngFor="let i of this.products; let index = index"
         >
           <mat-card
-            class="m-2 cursor"
+            class="m-2 cursor mxh
+            
+            
+            
+            "
             (click)="details(i)"
             [@enlarge]="isHoveringState[index]"
             (mouseenter)="changeHover(index)"

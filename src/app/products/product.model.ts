@@ -7,6 +7,9 @@ export enum Category {
 export interface customerReview {
   customerName: string;
   review: string;
+  date: string;
+  customerRating: number;
+  place: string;
 }
 
 export interface IProduct {

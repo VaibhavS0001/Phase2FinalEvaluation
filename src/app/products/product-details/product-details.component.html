@@ -1,66 +1,196 @@
-<h1 mat-dialog-title>Product Details</h1>
+<h1 mat-dialog-title *ngIf="switch">Product Details</h1>
+<h1 mat-dialog-title *ngIf="!switch">Update Product</h1>
 <div mat-dialog-content class="h-100">
-  <mat-card class="h-100">
-    <mat-card-header>
-      <mat-card-title>{{ data?.product?.name }}</mat-card-title>
-      <mat-card-subtitle
-        ><app-star [rating]="data?.product?.rating"></app-star
-        >{{ data?.product?.views }} Global Ratings</mat-card-subtitle
-      >
-    </mat-card-header>
+  <mat-card class="h-100" *ngIf="switch">
     <mat-card-content>
-      <mat-grid-list cols="3" rowHeight="100px">
-        <mat-grid-tile [colspan]="1" [rowspan]="2">
-          <img
-            class="m-5"
-            [src]="data?.product?.image"
-            alt=""
-            width="100%"
-            height="185px"
-          />
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="2" [rowspan]="2">
-          <div>
-            <p
-              [ngStyle]="{
-                color: 'red',
-                'font-size': '10px',
-                'font-weight': '700'
-              }"
-            >
-              Deal price
-            </p>
-            <p
-              [ngStyle]="{
-                color: 'red',
-                'font-size': '30px',
-                'font-weight': '200'
-              }"
-            >
-              59%
-            </p>
+      <div class="d-flex">
+        <img
+          class="flex-1 m-1"
+          [src]="data?.product?.image"
+          alt=""
+          width="35%"
+          height="280px"
+        />
+        <div class="flex-1 m-1">
+          <mat-card-title>{{ data?.product?.name }}</mat-card-title>
+          <mat-card-subtitle
+            ><app-star [rating]="data?.product?.rating"></app-star
+            >{{ data?.product?.views }} Global Ratings</mat-card-subtitle
+          >
+          <p
+            [ngStyle]="{
+              color: 'red',
+              'font-size': '10px',
+              'font-weight': '700'
+            }"
+          >
+            Deal price
+          </p>
+          <p
+            [ngStyle]="{
+              color: 'red',
+              'font-size': '30px',
+              'font-weight': '200'
+            }"
+          >
+            59%
+          </p>
+          <p [ngStyle]="{ 'line-height': '0px' }">
+            {{ data?.product?.price | currency : "INR" }}
+          </p>
+          <p
+            [ngStyle]="{
+              'font-size': '10px',
+              'text-decoration': 'line-through',
+              'line-height': '8px'
+            }"
+          >
+            Actual Price: {{ data?.product?.price / 0.59 | currency : "INR" }}
+          </p>
+          <mat-divider></mat-divider>
+          <p [ngStyle]="{ 'font-size': '10px' }"><strong>Offers</strong></p>
+          <div class="d-flex">
+            <mat-card class="flex-1 m-1 shadow-lg">
+              <mat-card-header>
+                <mat-card-title [ngStyle]="{ 'font-size': '12px' }"
+                  >No Cost EMI</mat-card-title
+                >
+              </mat-card-header>
+              <mat-card-content [ngStyle]="{ 'font-size': '10px' }">
+                Upto ₹1,226.77 EMI interest savings on…
+              </mat-card-content>
+            </mat-card>
+            <mat-card class="flex-1 m-1 shadow-lg">
+              <mat-card-header>
+                <mat-card-title [ngStyle]="{ 'font-size': '12px' }"
+                  >Partner Offers</mat-card-title
+                >
+              </mat-card-header>
+              <mat-card-content [ngStyle]="{ 'font-size': '10px' }">
+                Get GST invoice and save up to 28% on...
+              </mat-card-content>
+            </mat-card>
           </div>
-          {{ data?.product?.price | currency : "INR" }}
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="3" [rowspan]="1">
-          <div>
-            <p>
-              <strong>CustomerName:</strong>
-              {{ data?.product?.customerReviews[0]?.customerName }}
-            </p>
-            <p>
-              <strong>Reviews:</strong>
-              {{ data?.product?.customerReviews[0]?.review }}
-            </p>
-          </div>
-        </mat-grid-tile>
-      </mat-grid-list>
+        </div>
+      </div>
+      <mat-card class="w-100">
+        <mat-card-header>
+          <mat-card-title
+            [ngStyle]="{ 'font-size': '13px', 'line-height': '10px' }"
+            >Top Reviews</mat-card-title
+          >
+        </mat-card-header>
+        <br />
+        <mat-card-content *ngFor="let i of data?.product?.customerReviews">
+          <mat-divider></mat-divider>
+          <br />
+          <p [ngStyle]="{ 'font-size': '10px', 'line-height': '10px' }">
+            {{ i?.customerName }}
+          </p>
+          <p
+            class="d-flex"
+            [ngStyle]="{ 'font-size': '12px', 'line-height': '10px' }"
+          >
+            <app-star [rating]="i?.customerRating" [size]="10"></app-star
+            >{{ i?.review }}
+          </p>
+          <p [ngStyle]="{ 'font-size': '10px', 'line-height': '10px' }">
+            Reviewed in {{ i?.place }} on {{ i?.date }}
+          </p>
+          <br />
+        </mat-card-content>
+      </mat-card>
     </mat-card-content>
   </mat-card>
+  <form [formGroup]="updateProduct" *ngIf="!switch">
+    <div class="display-flex">
+      <mat-form-field appearance="outline" class="flex1 m-1">
+        <mat-label>Name</mat-label>
+        <input
+          id="name"
+          matInput
+          placeholder="Placeholder"
+          formControlName="name"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="flex1 m-1">
+        <mat-label>Price</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Placeholder"
+          formControlName="price"
+        />
+      </mat-form-field>
+    </div>
+    <div class="display-flex">
+      <mat-form-field appearance="outline" class="flex1 m-1">
+        <mat-label>Rating</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Placeholder"
+          formControlName="rating"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="flex1 m-1">
+        <mat-label>Select the Category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option>None</mat-option>
+          <mat-option value="electronics">Electronics</mat-option>
+          <mat-option value="veges">Veges</mat-option>
+          <mat-option value="fruits">Fruits</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="display-flex">
+      <mat-form-field appearance="outline" class="flex1">
+        <mat-label>Image</mat-label>
+        <button mat-icon-button matPrefix (click)="f_input.click()">
+          <mat-icon>attach_file</mat-icon>
+        </button>
+        <input type="text" readonly matInput formControlName="display" />
+        <input
+          type="file"
+          multiple
+          hidden
+          #f_input
+          (change)="handleFileInputChange(f_input.files)"
+        />
+        <mat-error>this field is required</mat-error>
+      </mat-form-field>
+    </div>
+  </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button (click)="onNoClick()" *ngIf="switch">
+    Close
+  </button>
+  <button
+    mat-button
+    (click)="switch = !switch"
+    *ngIf="role == 'Admin' && !switch"
+  >
+    Back
+  </button>
   <button mat-button (click)="saveToCart()" cdkFocusInitial>Add to Cart</button>
+  <button mat-button (click)="delete()" *ngIf="role == 'Admin'" >
+    Delete
+  </button>
+  <button
+    mat-button
+    (click)="edit()"
+    *ngIf="role == 'Admin' && switch"
+    cdkFocusInitial
+  >
+    Edit
+  </button>
+  <button
+    mat-button
+    (click)="update()"
+    *ngIf="role == 'Admin' && !switch"
+    cdkFocusInitial
+  >
+    Update
+  </button>
 </div>

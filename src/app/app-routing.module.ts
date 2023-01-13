@@ -8,22 +8,20 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: 'login',
-    loadChildren: () =>
-      import('./user/user.module').then((m) => m.UserModule),
+    loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
   { path: 'home', component: HomeComponent },
   {
     path: 'products',
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),
-      canActivate: [AuthGuardService],
   },
   {
     path: 'shared',
     loadChildren: () =>
       import('./common/shared.module').then((m) => m.SharedModule),
   },
-  { path: '**', component: PageNotFoundComponent},
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

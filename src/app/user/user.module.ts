@@ -21,7 +21,7 @@ import { userReducer } from '../state/user/user.reducers';
     ReactiveFormsModule,
     SharedModule,
     UserRoutingModule,
-    StoreModule.forFeature('animals', userReducer),
+    StoreModule.forFeature('users', userReducer),
     EffectsModule.forFeature([UserEffects]),
   ]
 })

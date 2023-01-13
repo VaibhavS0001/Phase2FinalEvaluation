@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartListService } from 'src/app/services/cart/cart-list.service';
 
 @Component({
   selector: 'nav-bar',
@@ -15,10 +16,13 @@ export class NavBarComponent {
   ];
   @Input() route!: string;
   @Input() buttons: string = 'Login';
+  badge: number = 0;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private cartService: CartListService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.badge = this.cartService.getProduct().products.length
+  }
 
   LogIn_Logout() {
     if (this.buttons == 'Logout') {

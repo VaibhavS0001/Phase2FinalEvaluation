@@ -38,17 +38,20 @@ export class ProductListComponent implements OnInit {
   navButton: string = 'login';
   category!: string;
   msg!: string;
+  role!: any;
 
   constructor(
     private aRoute: ActivatedRoute,
     private store: Store<ProductState>,
     public dialog: MatDialog,
-    private snackbar: MatSnackBar
+    private snackbar: MatSnackBar,
+    private router: Router
   ) {}
 
   public allProducts: Observable<IProduct[]> = this.store.select(getProducts);
 
   ngOnInit(): void {
+    this.role = sessionStorage.getItem('role');
     if (sessionStorage.getItem('isAuthenticated') == 'true') {
       this.navButton = 'Logout';
     } else {
@@ -71,22 +74,44 @@ export class ProductListComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
     });
   }
+
   OnclickRating(msg: string): void {
     this.msg = msg;
   }
 
-  details(product: IProduct): void {
+  details(prod: IProduct): void {
     const dialogRef = this.dialog.open(ProductDetailsComponent, {
       width: '60%',
-      data: { product: product, type: 'getProducts' },
+      data: { product: prod, type: 'getProducts' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
       if (result) {
-        this.snackbar.open('Product Added to Cart Successfully', 'close', {
-          duration: 2000,
-        });
+        if (result.type === 'saveToCart') {
+          this.snackbar.open('Product Added to Cart Successfully', 'close', {
+            duration: 2000,
+          });
+          this.router.navigate(['products/cart'], { state: { data: result.res } });
+        }
+        if (result.type === 'delete') {
+          let productId = result.res.id;
+          this.store.dispatch(
+            ProductActions.deleteProduct({ productId })
+          );
+          this.snackbar.open('Product deleted Successfully', 'close', {
+            duration: 2000,
+          });
+        }
+
+        if (result.type === 'update') {
+          let product = result.res;
+          this.store.dispatch(
+            ProductActions.updateProduct({ product })
+          );
+          this.snackbar.open('Product updated Successfully', 'close', {
+            duration: 2000,
+          });
+        }
       }
     });
   }

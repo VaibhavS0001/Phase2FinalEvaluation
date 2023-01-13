@@ -16,7 +16,6 @@
     </button>
     <button
       mat-flat-button
-      *ngIf="buttons == 'Logout'"
       [color]="this.route == 'product' ? 'accent' : 'warn'"
       [matMenuTriggerFor]="products"
     >
@@ -256,6 +255,19 @@
   </div>
   <span class="spacer"></span>
   <button
+    mat-icon-button
+    [color]="this.route == 'cart' ? 'accent' : ''"
+    class="example-icon favorite-icon"
+    [routerLink]="'/products/cart'"
+  >
+    <mat-icon
+      [matBadge]="badge"
+      matBadgeSize="small"
+      matBadgeColor="accent"
+      >shopping_cart</mat-icon
+    >
+  </button>
+  <button
     *ngIf="buttons"
     mat-flat-button
     color="warn"
@@ -266,11 +278,4 @@
     <mat-icon>{{ buttons.toLowerCase() }}</mat-icon>
     {{ buttons }}
   </button>
-  <!-- <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-  >
-    <mat-icon>share</mat-icon>
-  </button> -->
 </mat-toolbar>

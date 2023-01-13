@@ -24,6 +24,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { StarComponent } from './star/star.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    MatSelectModule,
     MatButtonModule,
     MatGridListModule,
     MatPaginatorModule,
@@ -48,6 +51,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatMenuModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatBadgeModule,
     MatTableModule,
     MatToolbarModule,
     MatTooltipModule,
@@ -60,6 +64,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     NgbCarouselModule,
     MatCardModule,
+    MatBadgeModule,
     MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
@@ -69,6 +74,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatGridListModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatSelectModule,
     MatTableModule,
     MatToolbarModule,
     MatTooltipModule,

@@ -1,0 +1,60 @@
+<nav-bar [buttons]="navButton" [route]="'cart'"></nav-bar>
+<div class="container h100">
+    <div class="m-auto pt-5">
+      <h1 class="text-center">{{title}}</h1>
+      <table *ngIf="productData?.products?.length" class="table table-striped shadow-lg">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Rating</th>
+            <th>Images</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of productData.products; let index=index" >
+            <td>{{ i.id }}</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.price | currency : "INR" }}</td>
+            <td>
+              <div class="div">
+                <button mat-mini-fab color="white" class="remove" (click)="remove(i.id)">
+                  <mat-icon>remove</mat-icon>
+                </button>
+                <span class="adjust">{{ productData.quantity[index] }}</span>
+                <button mat-mini-fab color="white" class="remove" (click)="add(i.id)">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+              </td>
+            <td>
+              <app-star
+                [rating]="i.rating"
+              ></app-star>
+            </td>
+            <td>
+              <img
+                src="{{ i.image }}"
+                alt=""
+                width="30%"
+                height="50px"
+                matTooltip="this is a {{i.category}} product"
+              />
+              <!-- matTooltip = "{{i.category == category.electronic ? 'this is a {{i.category}} product' : 'this is an {{i.category}} product'}}" -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="productData?.products?.length" class="m-auto pt-2 shadow-lg rounded display-flex">
+      <h2 class="text-center">CheckOut</h2>
+        <div class="d-flex m-1">
+          <h3 class="p-2 m-1 flex1">Total </h3>
+          <h4 class="flex3 p-2 m-1 text-end">{{total | currency: 'INR'}}</h4>
+        </div>
+        <button class="btn btn-outline-primary flex1 m-3">Buy Now</button>
+    </div>
+  </div>
+  

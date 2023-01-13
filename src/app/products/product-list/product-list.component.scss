@@ -1,7 +1,21 @@
-.cursor{
+.cursor {
     cursor: pointer;
 }
 
 .color {
     background-color: #f44336
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.mh {
+    min-height: 91.8vh;
+    width: 100%;
+}
+
+.mxh {
+    height: 98%;
+    width: 100%;
 }

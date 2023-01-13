@@ -5,6 +5,7 @@ import * as AppState from '../app.state';
 export interface State extends AppState.AppState {
   users: UserState;
 }
+
 export interface UserState {
   currentUserId: number | null;
   users: IUser[];
