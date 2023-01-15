@@ -1,3 +1,11 @@
+* {
+    font-family: 'Akaya Telivigala';
+}
+
+h1 {
+    font-family: 'Akaya Telivigala';
+}
+
 img:hover {
     transform: scale(1.5);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -5,6 +13,10 @@ img:hover {
 
 img {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.icon-family {
+    font-family: 'Material Icons';
 }
 
 .display-flex {
@@ -27,4 +39,44 @@ img {
 .adjust {
     position: relative;
     bottom: 7px;
+}
+
+
+table {
+    width: 100%;
+}
+
+tr.example-detail-row {
+    height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.example-element-row td {
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: hidden;
+    display: flex;
+}
+
+.example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.example-element-description {
+    padding: 16px;
+}
+
+.example-element-description-attribution {
+    opacity: 0.5;
 }

@@ -20,7 +20,7 @@ export class AuthGuardService {
       return true;
     }
     this.authService.redirectToUrl = url;
-    this.router.navigate(['/home']);
+    this.router.navigate(['']);
     return false;
   }
 }

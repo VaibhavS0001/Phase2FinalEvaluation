@@ -187,7 +187,7 @@
     </mat-menu>
 
     <mat-menu #veges="matMenu">
-      <button mat-menu-item [routerLink]="links[1]">
+      <button mat-menu-item [routerLink]="links[1]" class="mat-menu-panel" >
         Cruciferous
         <img
           class="p-3"
@@ -257,10 +257,10 @@
   <button
     mat-icon-button
     [color]="this.route == 'cart' ? 'accent' : ''"
-    class="example-icon favorite-icon"
+    class="icon-family"
     [routerLink]="'/products/cart'"
   >
-    <mat-icon [matBadge]="badge" matBadgeSize="small" matBadgeColor="accent"
+    <mat-icon [matBadge]="badge" matBadgeSize="small" matBadgeColor="accent" class="icon-family"
       >shopping_cart</mat-icon
     >
   </button>
@@ -272,7 +272,7 @@
     aria-label="Example icon-button with heart icon"
     (click)="LogIn_Logout()"
   >
-    <mat-icon>{{ buttons.toLowerCase() }}</mat-icon>
+    <mat-icon class="icon-family">{{ buttons.toLowerCase() }}</mat-icon>
     {{ buttons }}
   </button>
 </mat-toolbar>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartListService } from 'src/app/services/cart/cart-list.service';
 
@@ -6,6 +6,7 @@ import { CartListService } from 'src/app/services/cart/cart-list.service';
   selector: 'nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class NavBarComponent {
   /**
@@ -17,14 +18,13 @@ export class NavBarComponent {
     '/products/productList/veges',
     '/products/productList/electronics',
   ];
-  badge: number = 0;
 
   /**
    * Parent to Child property Bindings
    */
   @Input() route!: string;
   @Input() buttons: string = 'Login';
-
+  @Input() badge: number = 0;
   /**
    * constructor
    * @param router for navigating to other routes

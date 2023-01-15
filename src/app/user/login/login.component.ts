@@ -8,6 +8,7 @@ import * as UserActions from '../../state/user/user.actions';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -15,15 +16,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  
   loginForm!: any;
   users!: IUser[];
-  
+
   /**
    * Observable for get all users
    */
   public allUsers: Observable<IUser[]> = this.store.select(getUsers);
-  
+
   /**
    * Constructor
    * @param fb for Reactive Form Builder
@@ -35,15 +35,16 @@ export class LoginComponent {
     private fb: FormBuilder,
     private store: Store<UserState>,
     private route: Router,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private auth: UserService
   ) {}
 
   /**
    * On initialization checks for Authentication
-   * if not authenticated then loads all the users 
+   * if not authenticated then loads all the users
    */
   ngOnInit(): void {
-    if(sessionStorage.getItem('isAuthenticated') == 'true') {
+    if (sessionStorage.getItem('isAuthenticated') == 'true') {
       this.route.navigate(['/home']);
     }
     this.store.dispatch(UserActions.loadUsers());
@@ -59,7 +60,15 @@ export class LoginComponent {
   initLoginForm(): void {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.maxLength(14), /* Validators.pattern('[a-z]{3} *[A-Z]{3} *[0-9]{3} *[@]{1}') */]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.maxLength(
+            14
+          ) /* Validators.pattern('[a-z]{3} *[A-Z]{3} *[0-9]{3} *[@]{1}') */,
+        ],
+      ],
     });
   }
 
@@ -74,13 +83,25 @@ export class LoginComponent {
         user.password === this.loginForm.get('password')?.value
     )[0];
     if (user) {
-      sessionStorage.setItem('loggedInUser', JSON.stringify(user));
-      sessionStorage.setItem('isAuthenticated', 'true')
-      sessionStorage.setItem('role', user.role)
-      this.route.navigate(['/home']);
-    }else{
-      this._snackBar.open("Incorrect email or password", "close", {
-        duration: 2000
+      if (this.auth.redirectToUrl) {
+        sessionStorage.setItem('loggedInUser', JSON.stringify(user));
+        sessionStorage.setItem('isAuthenticated', 'true');
+        sessionStorage.setItem('role', user.role);
+        this.route.navigateByUrl(
+          'products/cart/' +
+            this.auth.redirectToUrl[0].path +
+            '/' +
+            this.auth.redirectToUrl[1].path
+        );
+      } else {
+        sessionStorage.setItem('loggedInUser', JSON.stringify(user));
+        sessionStorage.setItem('isAuthenticated', 'true');
+        sessionStorage.setItem('role', user.role);
+        this.route.navigate(['/home']);
+      }
+    } else {
+      this._snackBar.open('Incorrect email or password', 'close', {
+        duration: 2000,
       });
     }
   }

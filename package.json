@@ -33,6 +33,7 @@
     "@popperjs/core": "^2.11.6",
     "angular-in-memory-web-api": "^0.15.0",
     "bootstrap": "^5.2.3",
+    "ng-revealjs": "^1.0.1",
     "rxjs": "~7.5.0",
     "swiper": "^8.4.5",
     "tslib": "^2.3.0",

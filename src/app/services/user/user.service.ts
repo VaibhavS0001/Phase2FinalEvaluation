@@ -7,7 +7,7 @@ import { IUser } from 'src/app/user/user.model';
   providedIn: 'root',
 })
 export class UserService {
-  redirectToUrl!: string;
+  redirectToUrl!: any;
   url: string = '/api/users/';
 
   constructor(private http: HttpClient) {}

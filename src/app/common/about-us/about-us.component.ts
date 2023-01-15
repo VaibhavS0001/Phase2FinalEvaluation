@@ -23,4 +23,7 @@ export class AboutUsComponent {
       this.navButton = 'Login';
     }
   }
+
+  
+  
 }

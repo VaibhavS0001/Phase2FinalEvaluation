@@ -41,6 +41,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SharedRoutingModule } from './shared.routing.module';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { SharedRoutingModule } from './shared.routing.module';
   ],
   imports: [
     CommonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatSelectModule,
     MatButtonModule,
     MatGridListModule,
@@ -82,7 +86,9 @@ import { SharedRoutingModule } from './shared.routing.module';
     MatBadgeModule,
     MatDialogModule,
     MatDividerModule,
+    MatNativeDateModule,
     MatExpansionModule,
+    MatDatepickerModule,
     MatIconModule,
     MatInputModule,
     MatMenuModule,
