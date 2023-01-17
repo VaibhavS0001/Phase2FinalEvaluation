@@ -10,7 +10,7 @@ export class AboutUsComponent {
    * Variable declarations
    */
   navButton: string = 'login';
-
+  title = 'About Us'
   /**
    * On Initialization it will check for user authentication
    * if user is authenticated then change navButton to Logout

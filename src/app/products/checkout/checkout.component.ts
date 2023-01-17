@@ -6,7 +6,8 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CartListService } from 'src/app/services/cart/cart-list.service';
 
 @Component({
   selector: 'app-checkout',
@@ -22,9 +23,11 @@ export class CheckoutComponent {
 
   constructor(
     private aRoute: ActivatedRoute,
+    private route: Router,
     private fb: FormBuilder,
     public dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private cartService: CartListService
   ) {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(
@@ -69,6 +72,8 @@ export class CheckoutComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
+        this.cartService.setProduct({ products: [], quantity: [] });
+        this.route.navigate(['/'], {replaceUrl: true});
         this.snackBar.open(
           'Payment was successfull, your order will be delivered in a few days.',
           'close',
@@ -99,7 +104,6 @@ export class DialogOverview {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.data.paymentDetails);
     setTimeout(() => {
       this.dialogRef.close(true);
     }, 5000);

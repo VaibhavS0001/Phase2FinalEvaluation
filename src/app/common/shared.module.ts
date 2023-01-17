@@ -25,6 +25,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSelectModule } from '@angular/material/select';
+import { SharedRoutingModule } from './shared.routing.module';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 /**
  * Bootstrap and Reactive Form Modules
@@ -40,9 +43,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SharedRoutingModule } from './shared.routing.module';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     AboutUsComponent,
     PageNotFoundComponent,
     StarComponent,
+    SplashScreenComponent,
   ],
   imports: [
     CommonModule,
@@ -84,6 +86,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatButtonModule,
     NgbCarouselModule,
     MatProgressSpinnerModule,
+    SplashScreenComponent,
     MatCardModule,
     MatBadgeModule,
     MatDialogModule,

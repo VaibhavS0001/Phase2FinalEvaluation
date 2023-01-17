@@ -289,10 +289,9 @@
     >
   </button>
   <button
-    *ngIf="buttons"
     mat-flat-button
     color="warn"
-    class="example-icon favorite-icon"
+    class="loginLout"
     aria-label="Example icon-button with heart icon"
     (click)="LogIn_Logout()"
   >
@@ -307,6 +306,7 @@
     <mat-icon>person_outline</mat-icon>
   </button>
   <mat-menu #user="matMenu">
+    <button mat-menu-item>{{data}}</button>
     <button mat-menu-item>View Profile</button>
     <button mat-menu-item>Edit Profile</button>
     <button mat-menu-item>Settings</button>

@@ -1,405 +1,408 @@
-<nav-bar [buttons]="navButton" [route]="'home'"></nav-bar>
+<app-splash-screen *ngIf="navButton == 'Logout' && timer"></app-splash-screen>
+<div *ngIf="!timer">
+  <nav-bar [buttons]="navButton" [route]="'home'"></nav-bar>
 
-<div class="container-fluid p-4 img">
-  <mat-card class="mb-3 h-50 color">
-    <mat-card-header>
-      <mat-card-subtitle>Top Electronics</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content class="h-100">
-      <ngb-carousel
-        class="h-100"
-        [showNavigationIndicators]="false"
-        [interval]="6000"
-      >
-        <ng-template ngbSlide class="h-100">
-          <div class="picsum-img-wrapper h-100 d-flex">
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/mixers.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/smartwatch.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/samsungs22.webp"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/sw.png"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </ng-template>
-        <ng-template ngbSlide class="h-100">
-          <div class="picsum-img-wrapper h-100 d-flex">
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/camera.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/washers.png"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/iphone14promax.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/gzflip4.webp"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </ng-template>
-        <ng-template ngbSlide class="h-100">
-          <div class="picsum-img-wrapper h-100 d-flex">
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/VC.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/Headphones.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/chopper.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/galaxyzfold4.webp"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </ng-template>
-      </ngb-carousel>
-    </mat-card-content>
-  </mat-card>
+  <div class="container-fluid p-4 img">
+    <mat-card class="mb-3 h-50 color">
+      <mat-card-header>
+        <mat-card-subtitle>Top Electronics</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="h-100">
+        <ngb-carousel
+          class="h-100"
+          [showNavigationIndicators]="false"
+          [interval]="6000"
+        >
+          <ng-template ngbSlide class="h-100">
+            <div class="picsum-img-wrapper h-100 d-flex">
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/mixers.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/smartwatch.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/samsungs22.webp"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/sw.png"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide class="h-100">
+            <div class="picsum-img-wrapper h-100 d-flex">
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/camera.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/washers.png"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/iphone14promax.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/gzflip4.webp"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide class="h-100">
+            <div class="picsum-img-wrapper h-100 d-flex">
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/VC.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/Headphones.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/chopper.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/galaxyzfold4.webp"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </mat-card-content>
+    </mat-card>
 
-  <mat-card class="mb-3 h-50 color">
-    <mat-card-header>
-      <mat-card-subtitle>Top Vegies</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content class="h-100">
-      <ngb-carousel
-        class="h-100"
-        [showNavigationIndicators]="false"
-        [interval]="6000"
-      >
-        <ng-template ngbSlide class="h-100">
-          <div class="picsum-img-wrapper h-100 d-flex">
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/cabbage.png"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/broccoli.png"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/brussels.png"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/cauliflower.png"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </ng-template>
-        <ng-template ngbSlide class="h-100">
-          <div class="picsum-img-wrapper h-100 d-flex">
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/cruciferous.webp"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/alliums.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/brussels.png"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/tropicalE.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </ng-template>
-        <ng-template ngbSlide class="h-100">
-          <div class="picsum-img-wrapper h-100 d-flex">
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/LeafyGreens.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/roots.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/lettuce.png"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/silverbeet.png"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </ng-template>
-      </ngb-carousel>
-    </mat-card-content>
-  </mat-card>
+    <mat-card class="mb-3 h-50 color">
+      <mat-card-header>
+        <mat-card-subtitle>Top Vegies</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="h-100">
+        <ngb-carousel
+          class="h-100"
+          [showNavigationIndicators]="false"
+          [interval]="6000"
+        >
+          <ng-template ngbSlide class="h-100">
+            <div class="picsum-img-wrapper h-100 d-flex">
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/cabbage.png"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/broccoli.png"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/brussels.png"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/cauliflower.png"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide class="h-100">
+            <div class="picsum-img-wrapper h-100 d-flex">
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/cruciferous.webp"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/alliums.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/brussels.png"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/tropicalE.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide class="h-100">
+            <div class="picsum-img-wrapper h-100 d-flex">
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/LeafyGreens.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/roots.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/lettuce.png"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/silverbeet.png"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </mat-card-content>
+    </mat-card>
 
-  <mat-card class="mb-3 h-50 color">
-    <mat-card-header>
-      <mat-card-subtitle>Top Fruits</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content class="h-100">
-      <ngb-carousel
-        class="h-100"
-        [showNavigationIndicators]="false"
-        [interval]="6000"
-      >
-        <ng-template ngbSlide class="h-100">
-          <div class="picsum-img-wrapper h-100 d-flex">
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/ap.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/apricot.png"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/berries.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/citrus.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </ng-template>
-        <ng-template ngbSlide class="h-100">
-          <div class="picsum-img-wrapper h-100 d-flex">
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/tropicalE.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/grapefruit.png"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/marrow.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/melons.jpg"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </ng-template>
-        <ng-template ngbSlide class="h-100">
-          <div class="picsum-img-wrapper h-100 d-flex">
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/orange.png"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/pear.png"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/pumpkin.png"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-            <mat-card class="h-100 w-25 m-2">
-              <mat-card-content class="h-100">
-                <img
-                  src="../../assets/images/tomato.png"
-                  class="h-image"
-                  alt="..."
-                />
-              </mat-card-content>
-            </mat-card>
-          </div>
-        </ng-template>
-      </ngb-carousel>
-    </mat-card-content>
-  </mat-card>
+    <mat-card class="mb-3 h-50 color">
+      <mat-card-header>
+        <mat-card-subtitle>Top Fruits</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="h-100">
+        <ngb-carousel
+          class="h-100"
+          [showNavigationIndicators]="false"
+          [interval]="6000"
+        >
+          <ng-template ngbSlide class="h-100">
+            <div class="picsum-img-wrapper h-100 d-flex">
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/ap.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/apricot.png"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/berries.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/citrus.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide class="h-100">
+            <div class="picsum-img-wrapper h-100 d-flex">
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/tropicalE.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/grapefruit.png"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/marrow.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/melons.jpg"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide class="h-100">
+            <div class="picsum-img-wrapper h-100 d-flex">
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/orange.png"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/pear.png"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/pumpkin.png"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+              <mat-card class="h-100 w-25 m-2">
+                <mat-card-content class="h-100">
+                  <img
+                    src="../../assets/images/tomato.png"
+                    class="h-image"
+                    alt="..."
+                  />
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

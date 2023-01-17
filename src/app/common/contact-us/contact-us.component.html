@@ -13,6 +13,7 @@
         <mat-form-field appearance="outline" class="flex1">
           <mat-label>Name</mat-label>
           <input
+            class="name"
             matInput
             placeholder="Enter your Name"
             formControlName="name"
@@ -25,6 +26,7 @@
           <mat-label>Email</mat-label>
           <input
             matInput
+            class="email"
             placeholder="Enter your email"
             formControlName="email"
           />
@@ -41,6 +43,7 @@
           <mat-label>Topic of Concern</mat-label>
           <textarea
             matInput
+            class="message"
             cdkTextareaAutosize
             #autosize="cdkTextareaAutosize"
             cdkAutosizeMinRows="1"
@@ -53,7 +56,12 @@
     <!-- Login Form Ends -->
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button [disabled]="!contactUs.valid" (click)="send()">
+    <button
+      mat-raised-button
+      class="send"
+      [disabled]="!contactUs.valid"
+      (click)="send()"
+    >
       Send
       <mat-icon class="icon-family">send</mat-icon>
     </button>

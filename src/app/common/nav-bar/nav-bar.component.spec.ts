@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from '../shared.module';
@@ -22,5 +23,25 @@ describe('NavBarComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display username in navBar', () => {
+    component.data = 'Vaibhav Sharma';
+    fixture.detectChanges();
+    expect(component.data).toEqual('Vaibhav Sharma');
+  });
+
+  it('should chage the button to login once clicked on logout', () => {
+    const el = fixture.debugElement.query(By.css('.loginLout'));
+    expect(el).toBeTruthy();
+    component.buttons = 'Logout';
+    fixture.detectChanges();
+    if (el.nativeElement.innerText == 'Logout') {
+      el.triggerEventHandler('click', null);
+      fixture.detectChanges();
+      fixture.whenStable().then(() => {
+        expect(component.buttons).toEqual('login');
+      });
+    }
   });
 });

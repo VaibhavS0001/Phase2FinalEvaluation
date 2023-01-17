@@ -6,13 +6,14 @@ import { CartListService } from 'src/app/services/cart/cart-list.service';
   selector: 'nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class NavBarComponent {
   /**
    * Varaible Declarations
    */
   title = 'InstaSMart';
+  data: any;
   links: Array<string> = [
     '/products/productList/fruits',
     '/products/productList/veges',
@@ -33,6 +34,16 @@ export class NavBarComponent {
   constructor(private router: Router, private cartService: CartListService) {}
 
   ngOnInit(): void {
+    if (this.buttons == 'Logout') {
+      let dummy = {
+        email: 'login',
+        id: 0,
+        name: 'you are not logged in yet',
+        password: 'login',
+        role: 'login',
+      };
+      this.data = JSON.parse(sessionStorage.getItem('loggedInUser') || JSON.stringify(dummy)).name;
+    }
     this.badge = this.cartService.getProduct().products.length;
   }
 

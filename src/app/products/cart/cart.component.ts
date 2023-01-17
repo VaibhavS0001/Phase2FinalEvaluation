@@ -40,6 +40,7 @@ export class CartComponent {
   c: number = 0;
   badge: number = 0;
   check: boolean = true;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private cartService: CartListService,

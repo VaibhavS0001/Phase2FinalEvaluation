@@ -24,4 +24,9 @@ describe('AboutUsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should check title should be About Us', () => {
+    expect(component.title).toEqual('About Us')
+  });
+
 });

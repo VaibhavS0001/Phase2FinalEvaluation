@@ -22,4 +22,8 @@ describe('CartComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should check is navBar is rendering or not', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('nav-bar')).toBeTruthy();
+  });
 });
