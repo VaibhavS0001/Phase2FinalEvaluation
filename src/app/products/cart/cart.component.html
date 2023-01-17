@@ -2,156 +2,81 @@
 <div class="container h100">
   <div class="m-auto pt-5">
     <h1 class="text-center">{{ title }}</h1>
-    <!-- <table *ngIf="productData?.products?.length" class="table table-striped shadow-lg" color="warn">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Rating</th>
-            <th>Images</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let i of productData.products; let index=index" >
-            <td>{{ i.id }}</td>
-            <td>{{ i.name }}</td>
-            <td>{{ i.price | currency : "INR" }}</td>
-            <td>
-              <div class="div">
-                <button mat-mini-fab color="white" class="remove" (click)="remove(i.id)">
-                  <mat-icon class="icon-family">remove</mat-icon>
-                </button>
-                <span class="adjust">{{ productData.quantity[index] }}</span>
-                <button mat-mini-fab color="white" class="remove" (click)="add(i.id)">
-                  <mat-icon class="icon-family">add</mat-icon>
-                </button>
-              </div>
-              </td>
-            <td>
-              <app-star
-                [rating]="i.rating"
-              ></app-star>
-            </td>
-            <td>
-              <img
-                src="{{ i.image }}"
-                alt=""
-                width="30%"
-                height="50px"
-                matTooltip="this is a {{i.category}} product"
-              />
-              matTooltip = "{{i.category == category.electronic ? 'this is a {{i.category}} product' : 'this is an {{i.category}} product'}}"
-            </td>
-          </tr>
-        </tbody>
-      </table> -->
     <table
-      mat-table
-      [dataSource]="dataSource"
-      multiTemplateDataRows
-      class="mat-elevation-z8"
+      *ngIf="productData?.products?.length"
+      class="table table-striped shadow-lg"
+      color="warn"
     >
-      <ng-container
-        matColumnDef="{{ column }}"
-        *ngFor="let column of columnsToDisplay"
-      >
-        <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
-        <td mat-cell *matCellDef="let element; let i = index">
-          <p *ngIf="column != 'image' && column != 'quantity'">
-            {{ element.product[column] }}
-          </p>
-          <p *ngIf="column == 'image'">
-            <img
-              src="{{ element.product[column] }}"
-              alt=""
-              width="30%"
-              height="50px"
-              matTooltip="this is a category product"
-            />
-          </p>
-            <div class="div" *ngIf="column == 'quantity'">
-              <button mat-mini-fab color="white" class="remove" (click)="remove(element.product.id)">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Rating</th>
+          <th>Images</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of productData.products; let index = index">
+          <td>{{ i.id }}</td>
+          <td>{{ i.name }}</td>
+          <td>{{ i.price | currency : "INR" }}</td>
+          <td>
+            <div class="div">
+              <button
+                mat-mini-fab
+                color="white"
+                class="remove"
+                (click)="remove(i.id)"
+              >
                 <mat-icon class="icon-family">remove</mat-icon>
               </button>
-              <span class="adjust">{{ element.quantity }}</span>
-              <button mat-mini-fab color="white" class="remove" (click)="add(element.product.id)">
+              <span class="adjust">{{ productData.quantity[index] }}</span>
+              <button
+                mat-mini-fab
+                color="white"
+                class="remove"
+                (click)="add(i.id)"
+              >
                 <mat-icon class="icon-family">add</mat-icon>
               </button>
             </div>
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="expand">
-        <th mat-header-cell *matHeaderCellDef aria-label="row actions">
-          &nbsp;
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <button
-            mat-icon-button
-            aria-label="expand row"
-            (click)="
-              expandedElement = expandedElement === element ? null : element;
-              $event.stopPropagation()
-            "
-          >
-            <mat-icon class="icon-family" *ngIf="expandedElement !== element"
-              >keyboard_arrow_down</mat-icon
-            >
-            <mat-icon class="icon-family" *ngIf="expandedElement === element"
-              >keyboard_arrow_up</mat-icon
-            >
-          </button>
-        </td>
-      </ng-container>
-
-      <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
-      <ng-container matColumnDef="expandedDetail">
-        <td
-          mat-cell
-          *matCellDef="let element"
-          [attr.colspan]="columnsToDisplayWithExpand.length"
-        >
-          <div
-            class="example-element-detail"
-            [@detailExpand]="
-              element == expandedElement ? 'expanded' : 'collapsed'
-            "
-          >
-            <div class="example-element-diagram">
-              <div class="example-element-position">
-                <img
-                  src="{{ element.image }}"
-                  alt=""
-                  width="100%"
-                  height="80px"
-                />
-              </div>
-            </div>
-            <div class="example-element-description">
-              {{ element.description }}
-              <span class="example-element-description-attribution">
-                -- Wikipedia
-              </span>
-            </div>
-          </div>
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
-      <tr
-        mat-row
-        *matRowDef="let element; columns: columnsToDisplayWithExpand"
-        class="example-element-row"
-        [class.example-expanded-row]="expandedElement === element"
-        (click)="expandedElement = expandedElement === element ? null : element"
-      ></tr>
-      <tr
-        mat-row
-        *matRowDef="let row; columns: ['expandedDetail']"
-        class="example-detail-row"
-      ></tr>
+          </td>
+          <td>
+            <app-star [rating]="i.rating"></app-star>
+          </td>
+          <td>
+            <img
+              src="{{ i.image }}"
+              alt=""
+              width="30%"
+              height="50px"
+              matTooltip="this is a {{ i.category }} product"
+            />
+            <!-- matTooltip = "{{i.category == category.electronic ? 'this is a {{i.category}} product' : 'this is an {{i.category}} product'}}" -->
+          </td>
+        </tr>
+      </tbody>
     </table>
+    <mat-card *ngIf="!productData.products.length">
+      <mat-card-header>
+        <mat-card-title>Looks like your cart is empty</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="d-flex">
+          <div class="flex1 padd">
+            Please keep on continue shopping and check back later.
+          </div>
+          <div class="flex1 m-15">
+            <img src="../../../assets/images/e-cart.webp" alt="" width="70%">
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions class="justify-content-center">
+        <button mat-raised-button [routerLink]="''">Continue Shopping</button>
+      </mat-card-actions>
+    </mat-card>
   </div>
   <div *ngIf="productData?.products?.length" class="m-auto pt-2">
     <button

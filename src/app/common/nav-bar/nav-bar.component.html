@@ -22,15 +22,27 @@
       Products
     </button>
     <mat-menu #products="matMenu">
-      <button mat-menu-item [matMenuTriggerFor]="veges">Veges</button>
-      <button mat-menu-item [matMenuTriggerFor]="electronics">
+      <button mat-menu-item [matMenuTriggerFor]="veges" [routerLink]="links[1]">
+        Veges
+      </button>
+      <button
+        mat-menu-item
+        [matMenuTriggerFor]="electronics"
+        [routerLink]="links[2]"
+      >
         Electronics
       </button>
-      <button mat-menu-item [matMenuTriggerFor]="fruits">Fruits</button>
+      <button
+        mat-menu-item
+        [matMenuTriggerFor]="fruits"
+        [routerLink]="links[0]"
+      >
+        Fruits
+      </button>
     </mat-menu>
 
     <mat-menu #fruits="matMenu">
-      <button mat-menu-item [routerLink]="links[0]">
+      <button mat-menu-item [routerLink]="links[0] + '-' + 'applePear'">
         Apples and Pears<img
           class="p-3"
           src="../../../assets/images/ap.jpg"
@@ -38,7 +50,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[0]">
+      <button mat-menu-item [routerLink]="links[0] + '-' + 'citrus'">
         Citrus<img
           class="p-3"
           src="../../../assets/images/citrus.jpg"
@@ -46,7 +58,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[0]">
+      <button mat-menu-item [routerLink]="links[0] + '-' + 'stoneFruit'">
         Stone Fruit<img
           class="p-3"
           src="../../../assets/images/stone-fruit.webp"
@@ -54,7 +66,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[0]">
+      <button mat-menu-item [routerLink]="links[0] + '-' + 'tropicalExotic'">
         Tropical and Exotic<img
           class="p-3"
           src="../../../assets/images/tropicalE.jpg"
@@ -62,7 +74,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[0]">
+      <button mat-menu-item [routerLink]="links[0] + '-' + 'berries'">
         Berries<img
           class="p-3"
           src="../../../assets/images/berries.jpg"
@@ -70,7 +82,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[0]">
+      <button mat-menu-item [routerLink]="links[0] + '-' + 'melons'">
         Melons<img
           class="p-3"
           src="../../../assets/images/melons.jpg"
@@ -78,7 +90,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[0]">
+      <button mat-menu-item [routerLink]="links[0] + '-' + 'tomatoesAvacados'">
         Tomatoes<img
           class="p-3"
           src="../../../assets/images/tomato.png"
@@ -86,7 +98,7 @@
           height="50px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[0]">
+      <button mat-menu-item [routerLink]="links[0] + '-' + 'tomatoesAvacados'">
         Aavocados<img
           class="p-3"
           src="../../../assets/images/avacado.webp"
@@ -96,7 +108,7 @@
       </button>
     </mat-menu>
     <mat-menu #electronics="matMenu">
-      <button mat-menu-item [routerLink]="links[2]">
+      <button mat-menu-item [routerLink]="links[2] + '-' + 'smartPhone'">
         Smart Phones
         <img
           class="p-3"
@@ -105,7 +117,7 @@
           alt=""
         />
       </button>
-      <button mat-menu-item [routerLink]="links[2]">
+      <button mat-menu-item [routerLink]="links[2] + '-' + 'smartWatch'">
         Smart Watches<img
           class="p-3"
           src="../../../assets/images/smartwatch.jpg"
@@ -113,7 +125,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[2]">
+      <button mat-menu-item [routerLink]="links[2] + '-' + 'camera'">
         Camera
         <img
           class="p-3"
@@ -122,13 +134,17 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [matMenuTriggerFor]="households">
+      <button
+        mat-menu-item
+        [matMenuTriggerFor]="households"
+        [routerLink]="links[2] + '-' + 'houseAppliances'"
+      >
         Home Appliances
       </button>
     </mat-menu>
 
     <mat-menu #households="matMenu">
-      <button mat-menu-item [routerLink]="links[2]">
+      <button mat-menu-item [routerLink]="links[2] + '-' + 'houseAppliances'">
         Vaccum Cleaners<img
           class="p-3"
           src="../../../assets/images/VC.jpg"
@@ -136,7 +152,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[2]">
+      <button mat-menu-item [routerLink]="links[2] + '-' + 'houseAppliances'">
         Grinders<img
           class="p-3"
           src="../../../assets/images/grinders.jpg"
@@ -144,7 +160,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[2]">
+      <button mat-menu-item [routerLink]="links[2] + '-' + 'houseAppliances'">
         Mixers<img
           class="p-3"
           src="../../../assets/images/mixers.jpg"
@@ -152,7 +168,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[2]">
+      <button mat-menu-item [routerLink]="links[2] + '-' + 'houseAppliances'">
         Choppers<img
           class="p-3"
           src="../../../assets/images/chopper.jpg"
@@ -160,7 +176,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[2]">
+      <button mat-menu-item [routerLink]="links[2] + '-' + 'houseAppliances'">
         Sewing Machines<img
           class="p-3"
           src="../../../assets/images/sw.png"
@@ -168,7 +184,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[2]">
+      <button mat-menu-item [routerLink]="links[2] + '-' + 'houseAppliances'">
         Water Heaters<img
           class="p-3"
           src="../../../assets/images/wh.jpg"
@@ -176,7 +192,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[2]">
+      <button mat-menu-item [routerLink]="links[2] + '-' + 'houseAppliances'">
         Washers<img
           class="p-3"
           src="../../../assets/images/washers.png"
@@ -187,7 +203,11 @@
     </mat-menu>
 
     <mat-menu #veges="matMenu">
-      <button mat-menu-item [routerLink]="links[1]" class="mat-menu-panel" >
+      <button
+        mat-menu-item
+        [routerLink]="links[1] + '-' + 'cruciferous'"
+        class="mat-menu-panel"
+      >
         Cruciferous
         <img
           class="p-3"
@@ -196,7 +216,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[1]">
+      <button mat-menu-item [routerLink]="links[1] + '-' + 'leafyGreen'">
         Leafy Green<img
           class="p-3"
           src="../../../assets/images/LeafyGreens.jpg"
@@ -204,7 +224,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[1]">
+      <button mat-menu-item [routerLink]="links[1] + '-' + 'allium'">
         Allium<img
           class="p-3"
           src="../../../assets/images/alliums.jpg"
@@ -212,7 +232,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[1]">
+      <button mat-menu-item [routerLink]="links[1] + '-' + 'ediblePlantStem'">
         Edible Plant Stem
         <img
           class="p-3"
@@ -221,7 +241,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[1]">
+      <button mat-menu-item [routerLink]="links[1] + '-' + 'root'">
         Root<img
           class="p-3"
           src="../../../assets/images/roots.jpg"
@@ -229,7 +249,7 @@
           height="60px"
         />
       </button>
-      <button mat-menu-item [routerLink]="links[1]">
+      <button mat-menu-item [routerLink]="links[1] + '-' + 'marrow'">
         Marrow<img
           class="p-3"
           src="../../../assets/images/marrow.jpg"
@@ -260,7 +280,11 @@
     class="icon-family"
     [routerLink]="'/products/cart'"
   >
-    <mat-icon [matBadge]="badge" matBadgeSize="small" matBadgeColor="accent" class="icon-family"
+    <mat-icon
+      [matBadge]="badge"
+      matBadgeSize="small"
+      matBadgeColor="accent"
+      class="icon-family"
       >shopping_cart</mat-icon
     >
   </button>
@@ -275,4 +299,16 @@
     <mat-icon class="icon-family">{{ buttons.toLowerCase() }}</mat-icon>
     {{ buttons }}
   </button>
+  <button
+    mat-icon-button
+    *ngIf="buttons == 'Logout'"
+    [matMenuTriggerFor]="user"
+  >
+    <mat-icon>person_outline</mat-icon>
+  </button>
+  <mat-menu #user="matMenu">
+    <button mat-menu-item>View Profile</button>
+    <button mat-menu-item>Edit Profile</button>
+    <button mat-menu-item>Settings</button>
+  </mat-menu>
 </mat-toolbar>

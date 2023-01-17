@@ -14,6 +14,7 @@
           <mat-form-field appearance="outline" class="flex1">
             <mat-label>Email</mat-label>
             <input
+              class="email"
               matInput
               placeholder="Enter your email"
               formControlName="email"
@@ -32,6 +33,7 @@
             <mat-label>Password</mat-label>
             <input
               matInput
+              class="password"
               type="password"
               maxlength="14"
               placeholder="Enter Your Password"
@@ -50,6 +52,7 @@
     </mat-card-content>
     <mat-card-actions class="center mb-3">
       <button
+      class="bt"
         mat-raised-button
         color="warn"
         [disabled]="!loginForm.valid"

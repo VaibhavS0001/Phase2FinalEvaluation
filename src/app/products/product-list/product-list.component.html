@@ -8,7 +8,7 @@
       <mat-card-subtitle>Today's top sales</mat-card-subtitle>
       <span class="spacer"></span>
       <!-- Add Product function will be only available to the admin -->
-      <button mat-flat-button *ngIf="role == 'Admin'">Add Product</button>
+      <button mat-flat-button *ngIf="role == 'Admin'" (click)="addProduct()">Add Product</button>
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content class="mt-2">

@@ -6,6 +6,25 @@ export enum Category {
   electronics = 'electronics',
   fruits = 'fruits',
 }
+export enum subCategory {
+  cruciferous = 'cruciferous',
+  leafyGreen = 'leafyGreen',
+  allium = 'allium',
+  ediblePlantStem = 'ediblePlantStem',
+  root = 'root',
+  marrow = 'marrow',
+  smartPhone = 'smartPhone',
+  smartWatch = 'smartWatch',
+  camera = 'camera',
+  houseAppliances = 'houseAppliances',
+  applePear = 'applePear',
+  citrus = 'citrus',
+  stoneFruit = 'stoneFruit',
+  tropicalExotic = 'tropicalExotic',
+  berries = 'berries',
+  melons = 'melons',
+  tomatoesAvacados = 'tomatoesAvacados',
+}
 
 /**
  * Interface for customer reviews and ratings
@@ -26,6 +45,7 @@ export interface IProduct {
   name: string;
   price: string;
   category: Category;
+  subCategory: subCategory;
   rating: number;
   image: string;
   customerReviews: Array<customerReview>;

@@ -39,11 +39,11 @@ export class ProductListComponent implements OnInit {
   navButton: string = 'login';
   products: IProduct[] = [];
   panelOpenState = false;
-  category!: string;
   dataSource!: any;
   msg!: string;
   role!: any;
-
+  subCategory!: string;
+  category!: string;
   /**
    * constructor
    * @param store for managing the state of products
@@ -80,16 +80,50 @@ export class ProductListComponent implements OnInit {
       this.navButton = 'Login';
     }
     this.aRoute.paramMap.subscribe((params: any) => {
-      this.category = params.params.category;
+      this.subCategory = '';
+      this.category = '';
+      if (params.params.category.includes('-')) {
+        this.category = params.params.category.split('-')[0];
+        this.subCategory = params.params.category.split('-')[1];
+      } else {
+        this.category = params.params.category;
+      }
       this.store.dispatch(ProductActions.loadProducts());
     });
 
     this.allProducts.subscribe((products) => {
-      this.products = products.filter(
-        (product) => product.category == this.category
-      );
+      if (this.subCategory !== '') {
+        this.products = products.filter(
+          (product) => product.subCategory == this.subCategory
+        );
+      } else {
+        this.products = products.filter(
+          (product) => product.category == this.category
+        );
+      }
       for (let i = 0; i < this.products.length; i++) {
         this.isHoveringState[i] = 'void';
+      }
+    });
+  }
+
+  addProduct(): void {
+    const dialogRef = this.dialog.open(ProductDetailsComponent, {
+      width: '60%',
+      data: { type: 'addProducts' },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        /**
+         * add a product
+         */
+        if (result.type === 'add') {
+          let product = result.res;
+          this.store.dispatch(ProductActions.createProduct({ product }));
+          this.snackbar.open('Product added Successfully', 'close', {
+            duration: 2000,
+          });
+        }
       }
     });
   }

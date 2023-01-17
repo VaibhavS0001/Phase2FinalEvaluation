@@ -40,13 +40,6 @@ export class CartComponent {
   c: number = 0;
   badge: number = 0;
   check: boolean = true;
-  columnsToDisplay = ['name', 'price', 'quantity', 'rating', 'image'];
-  columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
-  expandedElement!: IProduct | null;
-  dataSource: Array<{
-    product: IProduct;
-    quantity: number;
-  }> = [];
   constructor(
     private activatedRoute: ActivatedRoute,
     private cartService: CartListService,
@@ -113,12 +106,6 @@ export class CartComponent {
         }
       }
     });
-    for(let i = 0; i < this.productData.products.length; i++){
-      this.dataSource.push({product: this.productData.products[i], quantity: this.productData.quantity[i]})
-    }
-    console.log('====================================');
-    console.log(this.dataSource);
-    console.log('====================================');
     this.cartService.setProduct(this.productData);
     // this.productData.products.forEach((product) => {
     //   sum += parseInt(product.price);

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Category } from 'src/app/products/product.model';
+import { Category, subCategory } from 'src/app/products/product.model';
 
 @Injectable({
   providedIn: 'root',
@@ -38,6 +38,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Lettuce',
           price: '40',
           category: Category.veges,
+          subCategory: subCategory.leafyGreen,
           rating: 4,
           image: '../../assets/images/lettuce.png',
           customerReviews: [
@@ -46,7 +47,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -56,6 +57,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Spinach',
           price: '140',
           category: Category.veges,
+          subCategory: subCategory.leafyGreen,
           rating: 4.5,
           image: 'assets/images/spinach.png',
           customerReviews: [
@@ -64,7 +66,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -74,6 +76,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Silverbeet',
           price: '30',
           category: Category.veges,
+          subCategory: subCategory.leafyGreen,
           rating: 4,
           image: '../../assets/images/silverbeet.png',
           customerReviews: [
@@ -82,7 +85,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -92,6 +95,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Cabbage',
           price: '45',
           category: Category.veges,
+          subCategory: subCategory.cruciferous,
           rating: 4.5,
           image: 'assets/images/cabbage.png',
           customerReviews: [
@@ -100,7 +104,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -110,6 +114,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Cauliflower',
           price: '60',
           category: Category.veges,
+          subCategory: subCategory.cruciferous,
           rating: 4,
           image: '../../assets/images/cauliflower.png',
           customerReviews: [
@@ -118,7 +123,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -128,6 +133,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Brussels Sprouts',
           price: '140',
           category: Category.veges,
+          subCategory: subCategory.cruciferous,
           rating: 4.5,
           image: 'assets/images/brussels.png',
           customerReviews: [
@@ -136,7 +142,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -146,6 +152,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Broccoli',
           price: '50',
           category: Category.veges,
+          subCategory: subCategory.cruciferous,
           rating: 4,
           image: '../../assets/images/broccoli.png',
           customerReviews: [
@@ -154,14 +161,14 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
             {
               customerName: 'James',
               review: 'Quality not so great',
               customerRating: 2.5,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -171,6 +178,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Pumpkin',
           price: '10',
           category: Category.veges,
+          subCategory: subCategory.marrow,
           rating: 4.5,
           image: 'assets/images/pumpkin.png',
           customerReviews: [
@@ -179,7 +187,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -189,6 +197,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Galaxy Z Fold 4',
           price: '40000',
           category: Category.electronics,
+          subCategory: subCategory.smartPhone,
           rating: 5,
           image: '../assets/images/galaxyzfold4.webp',
           customerReviews: [
@@ -197,7 +206,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -207,6 +216,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Galaxy M53',
           price: '40000',
           category: Category.electronics,
+          subCategory: subCategory.smartPhone,
           rating: 5,
           image: '../assets/images/gM53.avif',
           customerReviews: [
@@ -215,7 +225,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -225,6 +235,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Galaxy Tab S8',
           price: '40000',
           category: Category.electronics,
+          subCategory: subCategory.smartPhone,
           rating: 5,
           image: '../assets/images/Gtabs8.webp',
           customerReviews: [
@@ -233,7 +244,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -243,6 +254,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Galaxy z Flip 5',
           price: '40000',
           category: Category.electronics,
+          subCategory: subCategory.smartPhone,
           rating: 5,
           image: '../assets/images/gzflip4.webp',
           customerReviews: [
@@ -251,7 +263,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -261,6 +273,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Apple iPhone 14 Pro Max',
           price: '40000',
           category: Category.electronics,
+          subCategory: subCategory.smartPhone,
           rating: 5,
           image: '../assets/images/iphone14promax.jpg',
           customerReviews: [
@@ -269,16 +282,17 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
         },
         {
           id: 65,
-          name: 'Samsnug S22',
+          name: 'Samsung S22',
           price: '40000',
           category: Category.electronics,
+          subCategory: subCategory.smartPhone,
           rating: 5,
           image: '../assets/images/samsungs22.webp',
           customerReviews: [
@@ -287,7 +301,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -297,6 +311,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Apples',
           price: '200',
           category: Category.fruits,
+          subCategory: subCategory.applePear,
           rating: 5,
           image: '../assets/images/apple.png',
           customerReviews: [
@@ -305,7 +320,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -315,6 +330,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Pears',
           price: '100',
           category: Category.fruits,
+          subCategory: subCategory.applePear,
           rating: 4,
           image: '../assets/images/pear.png',
           customerReviews: [
@@ -323,7 +339,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -333,6 +349,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Oranges',
           price: '60',
           category: Category.fruits,
+          subCategory: subCategory.citrus,
           rating: 3.5,
           image: '../assets/images/orange.png',
           customerReviews: [
@@ -341,7 +358,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -351,6 +368,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Grapefruits',
           price: '90',
           category: Category.fruits,
+          subCategory: subCategory.citrus,
           rating: 3,
           image: '../assets/images/grapefruit.png',
           customerReviews: [
@@ -359,7 +377,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -369,6 +387,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Apricots',
           price: '120',
           category: Category.fruits,
+          subCategory: subCategory.stoneFruit,
           rating: 2.5,
           image: '../assets/images/apricot.png',
           customerReviews: [
@@ -377,7 +396,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
@@ -387,6 +406,7 @@ export class DatabaseService implements InMemoryDbService {
           name: 'Strawberries',
           price: '420',
           category: Category.fruits,
+          subCategory: subCategory.berries,
           rating: 1,
           image: '../assets/images/strawberry.png',
           customerReviews: [
@@ -395,7 +415,7 @@ export class DatabaseService implements InMemoryDbService {
               review: 'Great Quality',
               customerRating: 4,
               date: '27 Dec 2015',
-              place: 'India'
+              place: 'India',
             },
           ],
           views: 500,
