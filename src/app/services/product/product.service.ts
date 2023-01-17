@@ -20,6 +20,7 @@ export class ProductService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post<IProduct>(`${this.url}`, product, { headers });
   }
+  
   updateProduct(product: IProduct): Observable<IProduct> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.put<IProduct>(`${this.url}/${product.id}`, product, {

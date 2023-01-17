@@ -1,6 +1,6 @@
 <nav-bar [buttons]="navButton" [route]="'cart'" [badge]="badge"></nav-bar>
 <div class="container h100">
-  <div class="m-auto pt-5">
+  <div class="m-auto pt-5"*ngIf="check">
     <h1 class="text-center">{{ title }}</h1>
     <table
       *ngIf="productData?.products?.length"
@@ -78,7 +78,7 @@
       </mat-card-actions>
     </mat-card>
   </div>
-  <div *ngIf="productData?.products?.length" class="m-auto pt-2">
+  <div *ngIf="productData?.products?.length" class="m-auto pt-5">
     <button
       mat-raised-button
       color="warn"

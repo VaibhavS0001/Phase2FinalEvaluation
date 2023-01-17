@@ -76,9 +76,6 @@ describe('ProductListComponent', () => {
       );
     });
     fixture.detectChanges();
-    console.log(component.category);
-    console.log(component.subCategory);
-    console.log(component.products);
     expect(component.products).toEqual([
       {
         id: 80,

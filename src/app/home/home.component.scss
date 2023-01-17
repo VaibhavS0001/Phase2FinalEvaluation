@@ -11,17 +11,7 @@
     font-family: 'Akaya Telivigala';
 }
 
-// ::ng-deep .carousel-item {
-//     display: block !important;
-//     position: absolute;
-//     transform: translateY(100%);
-//     opacity: 0;
-//     transition:all  1s;
-//   }
-  
-//   ::ng-deep .carousel-item.active {
-//     position: relative;
-//     transform: translateY(0);
-//     opacity: 1;
-//     top: 0;
-//   }
+.img{
+    min-height: 88.8vh;
+    background: linear-gradient(145deg, #bb8680, #ffffff , #dac6c7);
+}

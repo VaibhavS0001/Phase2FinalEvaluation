@@ -56,6 +56,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     CommonModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatProgressSpinnerModule,
     MatSelectModule,
     MatButtonModule,
     MatGridListModule,
@@ -82,6 +83,7 @@ import { MatNativeDateModule } from '@angular/material/core';
   exports: [
     MatButtonModule,
     NgbCarouselModule,
+    MatProgressSpinnerModule,
     MatCardModule,
     MatBadgeModule,
     MatDialogModule,

@@ -1,5 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -14,9 +20,18 @@ export class CheckoutComponent {
   minDate: Date;
   maxDate: Date;
 
-  constructor(private aRoute: ActivatedRoute, private fb: FormBuilder) {
+  constructor(
+    private aRoute: ActivatedRoute,
+    private fb: FormBuilder,
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
+  ) {
     const currentYear = new Date().getFullYear();
-    this.minDate = new Date(currentYear - 0, new Date().getMonth(), new Date().getDate() + 1);
+    this.minDate = new Date(
+      currentYear - 0,
+      new Date().getMonth(),
+      new Date().getDate() + 1
+    );
     this.maxDate = new Date(currentYear + 10, 11, 31);
   }
 
@@ -47,8 +62,46 @@ export class CheckoutComponent {
     });
   }
 
-  submit(){
-    console.log(this.paymentForm.valid)
-    console.log(this.paymentForm.value)
+  submit() {
+    const dialogRef = this.dialog.open(DialogOverview, {
+      data: { paymentDetails: this.paymentForm.value },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.snackBar.open(
+          'Payment was successfull, your order will be delivered in a few days.',
+          'close',
+          {
+            duration: 3000,
+          }
+        );
+      }
+    });
+  }
+}
+
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  template: `<h1 mat-dialog-title>Transaction in Progress</h1>
+    <div mat-dialog-content>
+      <mat-spinner class="m-auto"></mat-spinner>
+      <div class="adjust">
+        <p>Please be patient</p>
+      </div>
+    </div>`,
+  styleUrls: ['./checkout.component.scss'],
+})
+export class DialogOverview {
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverview>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
+
+  ngOnInit(): void {
+    console.log(this.data.paymentDetails);
+    setTimeout(() => {
+      this.dialogRef.close(true);
+    }, 5000);
   }
 }

@@ -1,10 +1,10 @@
-<h1 mat-dialog-title *ngIf="switch && data?.type == 'getProducts'">Product Details</h1>
+<h1 mat-dialog-title *ngIf="switch && data?.type == 'getProducts'">
+  Product Details
+</h1>
 <h1 mat-dialog-title *ngIf="!switch && data?.type == 'getProducts'">
   Update Product
 </h1>
-<h1 mat-dialog-title *ngIf="data?.type == 'addProducts'">
-  Add Product
-</h1>
+<h1 mat-dialog-title *ngIf="data?.type == 'addProducts'">Add Product</h1>
 <div mat-dialog-content class="h-100">
   <mat-card class="h-100" *ngIf="switch && data?.type == 'getProducts'">
     <mat-card-content>
@@ -107,23 +107,28 @@
       </mat-card>
     </mat-card-content>
   </mat-card>
-  <form [formGroup]="this.data?.type === 'addProducts' ? addProduct : updateProduct" *ngIf="!switch || data?.type == 'addProducts'">
+  <form
+    [formGroup]="this.data?.type === 'addProducts' ? addProduct : updateProduct"
+    *ngIf="!switch || data?.type == 'addProducts'"
+  >
     <div class="display-flex">
       <mat-form-field appearance="outline" class="flex1 m-1">
         <mat-label>Name</mat-label>
         <input
+          class="name"
           id="name"
           matInput
-          placeholder="Placeholder"
+          placeholder="Enter Your Name"
           formControlName="name"
         />
       </mat-form-field>
       <mat-form-field appearance="outline" class="flex1 m-1">
         <mat-label>Price</mat-label>
         <input
+          class="price"
           matInput
           type="number"
-          placeholder="Placeholder"
+          placeholder="Enter the Price"
           formControlName="price"
         />
       </mat-form-field>
@@ -133,14 +138,15 @@
         <mat-label>Rating</mat-label>
         <input
           matInput
+          class="rating"
           type="number"
-          placeholder="Placeholder"
+          placeholder="Enter the Ratings"
           formControlName="rating"
         />
       </mat-form-field>
       <mat-form-field appearance="outline" class="flex1 m-1">
         <mat-label>Select the Category</mat-label>
-        <mat-select formControlName="category">
+        <mat-select formControlName="category" class="category">
           <mat-option>None</mat-option>
           <mat-option value="electronics">Electronics</mat-option>
           <mat-option value="veges">Veges</mat-option>
@@ -154,7 +160,13 @@
         <button mat-icon-button matPrefix (click)="f_input.click()">
           <mat-icon class="icon-family">attach_file</mat-icon>
         </button>
-        <input type="text" readonly matInput formControlName="display" />
+        <input
+          type="text"
+          readonly
+          matInput
+          formControlName="display"
+          class="display"
+        />
         <input
           type="file"
           multiple
@@ -166,7 +178,7 @@
       </mat-form-field>
       <mat-form-field appearance="outline" class="flex1 m-1">
         <mat-label>Select the Sub-Category</mat-label>
-        <mat-select formControlName="subCategory">
+        <mat-select formControlName="subCategory" class="subCategory">
           <mat-option>None</mat-option>
           <mat-option value="cruciferous">Cruciferous</mat-option>
           <mat-option value="leafyGreen">Leafy Green</mat-option>
@@ -201,8 +213,21 @@
   >
     Back
   </button>
-  <button mat-button (click)="saveToCart()" cdkFocusInitial *ngIf="data?.type=='getProducts'">Add to Cart</button>
-  <button mat-button (click)="delete()" *ngIf="role == 'Admin' && data?.type =='getProducts'">Delete</button>
+  <button
+    mat-button
+    (click)="saveToCart()"
+    cdkFocusInitial
+    *ngIf="data?.type == 'getProducts'"
+  >
+    Add to Cart
+  </button>
+  <button
+    mat-button
+    (click)="delete()"
+    *ngIf="role == 'Admin' && data?.type == 'getProducts'"
+  >
+    Delete
+  </button>
   <button
     mat-button
     (click)="edit()"
@@ -212,7 +237,9 @@
     Edit
   </button>
   <button
+    class="update-btn"
     mat-button
+    [disabled]="!updateProduct.valid"
     (click)="update()"
     *ngIf="role == 'Admin' && !switch && data?.type == 'getProducts'"
     cdkFocusInitial
@@ -220,7 +247,9 @@
     Update
   </button>
   <button
+    class="add-btn"
     mat-button
+    [disabled]="!addProduct.valid"
     (click)="add()"
     *ngIf="role == 'Admin' && data?.type == 'addProducts'"
     cdkFocusInitial
