@@ -10,7 +10,6 @@ export class HomeComponent {
    * Variable declaration
    */
   navButton: string = 'login';
-  timer: boolean = true;
   /**
    * On Initialization it will check for user authentication
    * if user is authenticated then change navButton to Logout
@@ -19,12 +18,8 @@ export class HomeComponent {
   ngOnInit(): void {
     if (sessionStorage.getItem('isAuthenticated') == 'true') {
       this.navButton = 'Logout';
-      setTimeout(() => {
-        this.timer = false;
-      }, 2000);
     } else {
       this.navButton = 'Login';
-      this.timer = false;
     }
   }
 }

@@ -18,6 +18,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class LoginComponent {
   loginForm!: any;
   users!: IUser[];
+  timer: boolean = true;
 
   /**
    * Observable for get all users
@@ -46,7 +47,12 @@ export class LoginComponent {
   ngOnInit(): void {
     if (sessionStorage.getItem('isAuthenticated') == 'true') {
       this.route.navigate(['/home']);
+    } else {
+      setTimeout(() => {
+        this.timer = false;
+      }, 2000);
     }
+
     this.store.dispatch(UserActions.loadUsers());
     this.allUsers.subscribe((users: IUser[]): void => {
       this.users = users;
