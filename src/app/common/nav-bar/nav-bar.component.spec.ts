@@ -31,7 +31,7 @@ describe('NavBarComponent', () => {
     expect(component.data).toEqual('Vaibhav Sharma');
   });
 
-  it('should chage the button to login once clicked on logout', () => {
+  it('should change the button to login once clicked on logout', () => {
     const el = fixture.debugElement.query(By.css('.loginLout'));
     expect(el).toBeTruthy();
     component.buttons = 'Logout';
