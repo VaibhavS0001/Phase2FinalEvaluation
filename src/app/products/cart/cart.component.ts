@@ -67,8 +67,9 @@ export class CartComponent {
         if (data.data != undefined && this.productData != undefined) {
           for (let i = 0; i < this.productData.products.length; i++) {
             if (this.productData.products[i].id == data.data.id) {
+              this.add(this.productData.products[i].id);
               this.snackBar.open(
-                'this product has already been added to cart',
+                'this product was already in the cart we have now increased the quantity',
                 'close',
                 {
                   duration: 2000,

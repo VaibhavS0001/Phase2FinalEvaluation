@@ -27,8 +27,6 @@ describe('HomeComponent', () => {
   });
 
   it('should check is navBar is rendering or not', () => {
-    component.timer = false;
-    fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('nav-bar')).toBeTruthy();
   });

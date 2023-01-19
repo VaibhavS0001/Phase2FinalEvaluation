@@ -12,6 +12,7 @@
       [routerLink]="'/home'"
       [color]="this.route == 'home' ? 'accent' : 'warn'"
     >
+      <mat-icon>home</mat-icon>
       Home
     </button>
     <button
@@ -19,6 +20,7 @@
       [color]="this.route == 'product' ? 'accent' : 'warn'"
       [matMenuTriggerFor]="products"
     >
+      <mat-icon>shopping_basket</mat-icon>
       Products
     </button>
     <mat-menu #products="matMenu">
@@ -263,6 +265,7 @@
       [routerLink]="'/shared/about-us'"
       [color]="this.route == 'about' ? 'accent' : 'warn'"
     >
+      <mat-icon>info</mat-icon>
       About Us
     </button>
     <button
@@ -270,6 +273,7 @@
       [routerLink]="'/shared/contact-us'"
       [color]="this.route == 'contact' ? 'accent' : 'warn'"
     >
+      <mat-icon> call</mat-icon>
       Contact Us
     </button>
   </div>
@@ -306,7 +310,7 @@
     <mat-icon>person_outline</mat-icon>
   </button>
   <mat-menu #user="matMenu">
-    <button mat-menu-item>{{data}}</button>
+    <button mat-menu-item>{{ data }}</button>
     <button mat-menu-item>View Profile</button>
     <button mat-menu-item>Edit Profile</button>
     <button mat-menu-item>Settings</button>

@@ -27,6 +27,7 @@ describe('LoginComponent', () => {
 
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
+    component.timer = false;
     fixture.detectChanges();
   });
 
